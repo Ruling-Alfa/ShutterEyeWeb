@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="shutterEyeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="shutterEyeModelStoreContainer">
+          <EntitySet Name="comment" EntityType="shutterEyeModel.Store.comment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="like" EntityType="shutterEyeModel.Store.like" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="photoUpload" EntityType="shutterEyeModel.Store.photoUpload" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="registration" EntityType="shutterEyeModel.Store.registration" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_comment_photoUpload" Association="shutterEyeModel.Store.FK_comment_photoUpload">
+            <End Role="photoUpload" EntitySet="photoUpload" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comment_registration" Association="shutterEyeModel.Store.FK_comment_registration">
+            <End Role="registration" EntitySet="registration" />
+            <End Role="comment" EntitySet="comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_photoUpload" Association="shutterEyeModel.Store.FK_like_photoUpload">
+            <End Role="photoUpload" EntitySet="photoUpload" />
+            <End Role="like" EntitySet="like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_registration" Association="shutterEyeModel.Store.FK_like_registration">
+            <End Role="registration" EntitySet="registration" />
+            <End Role="like" EntitySet="like" />
+          </AssociationSet>
+          <AssociationSet Name="FK_photoUpload_registration1" Association="shutterEyeModel.Store.FK_photoUpload_registration1">
+            <End Role="registration" EntitySet="registration" />
+            <End Role="photoUpload" EntitySet="photoUpload" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="cId" />
+          </Key>
+          <Property Name="cId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="uId" Type="int" Nullable="false" />
+          <Property Name="pId" Type="int" Nullable="false" />
+          <Property Name="comment" Type="varchar(max)" />
+          <Property Name="cDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="like">
+          <Key>
+            <PropertyRef Name="lId" />
+          </Key>
+          <Property Name="lId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="uId" Type="int" Nullable="false" />
+          <Property Name="pId" Type="int" Nullable="false" />
+          <Property Name="lDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="photoUpload">
+          <Key>
+            <PropertyRef Name="pId" />
+          </Key>
+          <Property Name="pId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="uId" Type="int" Nullable="false" />
+          <Property Name="path" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="phName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="myReg" Type="varchar" MaxLength="50" />
+          <Property Name="caption" Type="varchar" MaxLength="50" />
+          <Property Name="phDate" Type="datetime" Nullable="false" />
+          <Property Name="location" Type="varchar" MaxLength="50" />
+          <Property Name="phType" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="registration">
+          <Key>
+            <PropertyRef Name="uId" />
+          </Key>
+          <Property Name="uId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="lastName" Type="varchar" MaxLength="150" />
+          <Property Name="userName" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="emailId" Type="varchar" Nullable="false" MaxLength="80" />
+          <Property Name="mobileNo" Type="int" Nullable="false" />
+          <Property Name="accountType" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="country" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="profilePhoto" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="gender" Type="varchar" Nullable="false" MaxLength="2" />
+        </EntityType>
+        <Association Name="FK_comment_photoUpload">
+          <End Role="photoUpload" Type="shutterEyeModel.Store.photoUpload" Multiplicity="1" />
+          <End Role="comment" Type="shutterEyeModel.Store.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="photoUpload">
+              <PropertyRef Name="pId" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="pId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comment_registration">
+          <End Role="registration" Type="shutterEyeModel.Store.registration" Multiplicity="1" />
+          <End Role="comment" Type="shutterEyeModel.Store.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_photoUpload">
+          <End Role="photoUpload" Type="shutterEyeModel.Store.photoUpload" Multiplicity="1" />
+          <End Role="like" Type="shutterEyeModel.Store.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="photoUpload">
+              <PropertyRef Name="pId" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="pId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_registration">
+          <End Role="registration" Type="shutterEyeModel.Store.registration" Multiplicity="1" />
+          <End Role="like" Type="shutterEyeModel.Store.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_photoUpload_registration1">
+          <End Role="registration" Type="shutterEyeModel.Store.registration" Multiplicity="1" />
+          <End Role="photoUpload" Type="shutterEyeModel.Store.photoUpload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="photoUpload">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="comDel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="comIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uId" Type="int" Mode="In" />
+          <Parameter Name="pId" Type="int" Mode="In" />
+          <Parameter Name="comment" Type="varchar(max)" Mode="In" />
+          <Parameter Name="cDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="comSel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="comUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cId" Type="int" Mode="In" />
+          <Parameter Name="uId" Type="int" Mode="In" />
+          <Parameter Name="pId" Type="int" Mode="In" />
+          <Parameter Name="comment" Type="varchar(max)" Mode="In" />
+          <Parameter Name="cDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="likDel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="likIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uId" Type="int" Mode="In" />
+          <Parameter Name="pId" Type="int" Mode="In" />
+          <Parameter Name="lDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="likSel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="lId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="phoDel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="phoIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uId" Type="int" Mode="In" />
+          <Parameter Name="path" Type="varchar" Mode="In" />
+          <Parameter Name="phName" Type="varchar" Mode="In" />
+          <Parameter Name="myReg" Type="varchar" Mode="In" />
+          <Parameter Name="caption" Type="varchar" Mode="In" />
+          <Parameter Name="phDate" Type="datetime" Mode="In" />
+          <Parameter Name="location" Type="varchar" Mode="In" />
+          <Parameter Name="phType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="phoSel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="phoUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pId" Type="int" Mode="In" />
+          <Parameter Name="uId" Type="int" Mode="In" />
+          <Parameter Name="path" Type="varchar" Mode="In" />
+          <Parameter Name="phName" Type="varchar" Mode="In" />
+          <Parameter Name="myReg" Type="varchar" Mode="In" />
+          <Parameter Name="caption" Type="varchar" Mode="In" />
+          <Parameter Name="phDate" Type="datetime" Mode="In" />
+          <Parameter Name="location" Type="varchar" Mode="In" />
+          <Parameter Name="phType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="regDel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="regIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="firstName" Type="varchar" Mode="In" />
+          <Parameter Name="lastName" Type="varchar" Mode="In" />
+          <Parameter Name="userName" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="emailId" Type="varchar" Mode="In" />
+          <Parameter Name="mobileNo" Type="int" Mode="In" />
+          <Parameter Name="accountType" Type="varchar" Mode="In" />
+          <Parameter Name="country" Type="varchar" Mode="In" />
+          <Parameter Name="state" Type="varchar" Mode="In" />
+          <Parameter Name="city" Type="varchar" Mode="In" />
+          <Parameter Name="profilePhoto" Type="varchar" Mode="In" />
+          <Parameter Name="gender" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="regSel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="regUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uId" Type="int" Mode="In" />
+          <Parameter Name="firstName" Type="varchar" Mode="In" />
+          <Parameter Name="lastName" Type="varchar" Mode="In" />
+          <Parameter Name="userName" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="emailId" Type="varchar" Mode="In" />
+          <Parameter Name="mobileNo" Type="int" Mode="In" />
+          <Parameter Name="accountType" Type="varchar" Mode="In" />
+          <Parameter Name="country" Type="varchar" Mode="In" />
+          <Parameter Name="state" Type="varchar" Mode="In" />
+          <Parameter Name="city" Type="varchar" Mode="In" />
+          <Parameter Name="profilePhoto" Type="varchar" Mode="In" />
+          <Parameter Name="gender" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usePass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userName" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+          <Parameter Name="id" Type="int" Mode="InOut" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="shutterEyeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="shutterEyeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="comments" EntityType="shutterEyeModel.comment" />
+          <EntitySet Name="likes" EntityType="shutterEyeModel.like" />
+          <EntitySet Name="photoUploads" EntityType="shutterEyeModel.photoUpload" />
+          <EntitySet Name="registrations" EntityType="shutterEyeModel.registration" />
+          <AssociationSet Name="FK_comment_photoUpload" Association="shutterEyeModel.FK_comment_photoUpload">
+            <End Role="photoUpload" EntitySet="photoUploads" />
+            <End Role="comment" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comment_registration" Association="shutterEyeModel.FK_comment_registration">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="comment" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_photoUpload" Association="shutterEyeModel.FK_like_photoUpload">
+            <End Role="photoUpload" EntitySet="photoUploads" />
+            <End Role="like" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_registration" Association="shutterEyeModel.FK_like_registration">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="like" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_photoUpload_registration1" Association="shutterEyeModel.FK_photoUpload_registration1">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="photoUpload" EntitySet="photoUploads" />
+          </AssociationSet>
+          <FunctionImport Name="usePassSp">
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="cId" />
+          </Key>
+          <Property Name="cId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uId" Type="Int32" Nullable="false" />
+          <Property Name="pId" Type="Int32" Nullable="false" />
+          <Property Name="comment1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="cDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="photoUpload" Relationship="shutterEyeModel.FK_comment_photoUpload" FromRole="comment" ToRole="photoUpload" />
+          <NavigationProperty Name="registration" Relationship="shutterEyeModel.FK_comment_registration" FromRole="comment" ToRole="registration" />
+        </EntityType>
+        <EntityType Name="like">
+          <Key>
+            <PropertyRef Name="lId" />
+          </Key>
+          <Property Name="lId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uId" Type="Int32" Nullable="false" />
+          <Property Name="pId" Type="Int32" Nullable="false" />
+          <Property Name="lDate" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="photoUpload" Relationship="shutterEyeModel.FK_like_photoUpload" FromRole="like" ToRole="photoUpload" />
+          <NavigationProperty Name="registration" Relationship="shutterEyeModel.FK_like_registration" FromRole="like" ToRole="registration" />
+        </EntityType>
+        <EntityType Name="photoUpload">
+          <Key>
+            <PropertyRef Name="pId" />
+          </Key>
+          <Property Name="pId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uId" Type="Int32" Nullable="false" />
+          <Property Name="path" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="phName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="myReg" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="caption" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="phDate" Type="DateTime" Nullable="false" />
+          <Property Name="location" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="phType" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="comments" Relationship="shutterEyeModel.FK_comment_photoUpload" FromRole="photoUpload" ToRole="comment" />
+          <NavigationProperty Name="likes" Relationship="shutterEyeModel.FK_like_photoUpload" FromRole="photoUpload" ToRole="like" />
+          <NavigationProperty Name="registration" Relationship="shutterEyeModel.FK_photoUpload_registration1" FromRole="photoUpload" ToRole="registration" />
+        </EntityType>
+        <EntityType Name="registration">
+          <Key>
+            <PropertyRef Name="uId" />
+          </Key>
+          <Property Name="uId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="emailId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="mobileNo" Type="Int32" Nullable="false" />
+          <Property Name="accountType" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="country" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="state" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="city" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="profilePhoto" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="comments" Relationship="shutterEyeModel.FK_comment_registration" FromRole="registration" ToRole="comment" />
+          <NavigationProperty Name="likes" Relationship="shutterEyeModel.FK_like_registration" FromRole="registration" ToRole="like" />
+          <NavigationProperty Name="photoUploads" Relationship="shutterEyeModel.FK_photoUpload_registration1" FromRole="registration" ToRole="photoUpload" />
+        </EntityType>
+        <Association Name="FK_comment_photoUpload">
+          <End Role="photoUpload" Type="shutterEyeModel.photoUpload" Multiplicity="1" />
+          <End Role="comment" Type="shutterEyeModel.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="photoUpload">
+              <PropertyRef Name="pId" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="pId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_comment_registration">
+          <End Role="registration" Type="shutterEyeModel.registration" Multiplicity="1" />
+          <End Role="comment" Type="shutterEyeModel.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="comment">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_photoUpload">
+          <End Role="photoUpload" Type="shutterEyeModel.photoUpload" Multiplicity="1" />
+          <End Role="like" Type="shutterEyeModel.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="photoUpload">
+              <PropertyRef Name="pId" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="pId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_like_registration">
+          <End Role="registration" Type="shutterEyeModel.registration" Multiplicity="1" />
+          <End Role="like" Type="shutterEyeModel.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="like">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_photoUpload_registration1">
+          <End Role="registration" Type="shutterEyeModel.registration" Multiplicity="1" />
+          <End Role="photoUpload" Type="shutterEyeModel.photoUpload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="registration">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="photoUpload">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="shutterEyeModelStoreContainer" CdmEntityContainer="shutterEyeEntities">
+          <EntitySetMapping Name="comments">
+            <EntityTypeMapping TypeName="shutterEyeModel.comment">
+              <MappingFragment StoreEntitySet="comment">
+                <ScalarProperty Name="cId" ColumnName="cId" />
+                <ScalarProperty Name="uId" ColumnName="uId" />
+                <ScalarProperty Name="pId" ColumnName="pId" />
+                <ScalarProperty Name="comment1" ColumnName="comment" />
+                <ScalarProperty Name="cDate" ColumnName="cDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="likes">
+            <EntityTypeMapping TypeName="shutterEyeModel.like">
+              <MappingFragment StoreEntitySet="like">
+                <ScalarProperty Name="lId" ColumnName="lId" />
+                <ScalarProperty Name="uId" ColumnName="uId" />
+                <ScalarProperty Name="pId" ColumnName="pId" />
+                <ScalarProperty Name="lDate" ColumnName="lDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="photoUploads">
+            <EntityTypeMapping TypeName="shutterEyeModel.photoUpload">
+              <MappingFragment StoreEntitySet="photoUpload">
+                <ScalarProperty Name="pId" ColumnName="pId" />
+                <ScalarProperty Name="uId" ColumnName="uId" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="phName" ColumnName="phName" />
+                <ScalarProperty Name="myReg" ColumnName="myReg" />
+                <ScalarProperty Name="caption" ColumnName="caption" />
+                <ScalarProperty Name="phDate" ColumnName="phDate" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="phType" ColumnName="phType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registrations">
+            <EntityTypeMapping TypeName="shutterEyeModel.registration">
+              <MappingFragment StoreEntitySet="registration">
+                <ScalarProperty Name="uId" ColumnName="uId" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="emailId" ColumnName="emailId" />
+                <ScalarProperty Name="mobileNo" ColumnName="mobileNo" />
+                <ScalarProperty Name="accountType" ColumnName="accountType" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="profilePhoto" ColumnName="profilePhoto" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usePassSp" FunctionName="shutterEyeModel.Store.usePass" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ShutterDB">
+        <EntityTypeShape EntityType="shutterEyeModel.comment" Width="1.5" PointX="5.25" PointY="7.625" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="shutterEyeModel.like" Width="1.5" PointX="5.25" PointY="10.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="shutterEyeModel.photoUpload" Width="1.5" PointX="3" PointY="10.375" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="shutterEyeModel.registration" Width="1.5" PointX="0.75" PointY="3.875" Height="4.0956022135416656" IsExpanded="true" />
+        <AssociationConnector Association="shutterEyeModel.FK_comment_photoUpload" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="10.375" />
+          <ConnectorPoint PointX="3.75" PointY="8.8074446614583337" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="8.8074446614583337" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="8.8074446614583337" />
+          <ConnectorPoint PointX="5.25" PointY="8.8074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="shutterEyeModel.FK_comment_registration" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.7978011067708328" />
+          <ConnectorPoint PointX="5.25" PointY="7.7978011067708328" />
+        </AssociationConnector>
+        <AssociationConnector Association="shutterEyeModel.FK_like_photoUpload" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="11.8362939453125" />
+          <ConnectorPoint PointX="5.25" PointY="11.8362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="shutterEyeModel.FK_like_registration" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.9706022135416656" />
+          <ConnectorPoint PointX="2.625" PointY="8.3456022135416656" />
+          <ConnectorPoint PointX="4.875" PointY="8.3456022135416656" />
+          <ConnectorPoint PointX="4.875" PointY="10.373847153846153" />
+          <ConnectorPoint PointX="5.2511528461538459" PointY="10.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="shutterEyeModel.FK_photoUpload_registration1" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.4687475" PointY="7.9706022135416656" />
+          <ConnectorPoint PointX="1.4687475" PointY="12.0381982421875" />
+          <ConnectorPoint PointX="3" PointY="12.0381982421875" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

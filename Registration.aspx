@@ -67,30 +67,35 @@
                     <div class="form-group">
                         <div class="col-lg-10">
                             <asp:TextBox ID="txtBoxFirstName" class="form-control"  runat="server" placeholder="FirstName"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="requiredFirstName" ControlToValidate="txtBoxFirstName" runat="server" ErrorMessage="Please Enter Your First Name"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                        
                         <div class="col-lg-10">
                              <asp:TextBox ID="txtBoxLastName" class="form-control"  runat="server" placeholder="LastName"></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="requiredLastName" ControlToValidate="txtBoxLastName" runat="server" ErrorMessage="Please Enter Your last Name"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         
                         <div class="col-lg-10">
                             <asp:TextBox ID="txtBoxUserName" class="form-control"  runat="server" placeholder="UserName"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="requiredUserName" ControlToValidate="txtBoxUserName" runat="server" ErrorMessage="Please Enter a User Name"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         
                         <div class="col-lg-10" title="Show password">
                             <asp:TextBox ID="txtBoxPassword" TextMode="Password" class="form-control"  runat="server" placeholder="Password"></asp:TextBox>       
+                            <asp:RequiredFieldValidator ID="requiredPassword" ControlToValidate="txtBoxPassword" runat="server" ErrorMessage="Please Enter a Password"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         
                         <div class="col-lg-10">
                              <asp:TextBox ID="txtBoxConfirmPassword" TextMode="Password" class="form-control"  runat="server" placeholder="Confirm Password"></asp:TextBox>
+                             <asp:CompareValidator ID="comparePassword" runat="server" ValueToCompare="txtBoxPassword" ControlToValidate="txtBoxConfirmPassword"  ErrorMessage="Please Enter Same Password" Display="Dynamic"></asp:CompareValidator>
                     </div>
                     </div>
 
@@ -98,18 +103,22 @@
                         
                         <div class="col-lg-10">
                              <asp:TextBox ID="txtBoxEmail" class="form-control"  runat="server" placeholder="Email"></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="requiredEmail" ControlToValidate="txtBoxEmail" runat="server" ErrorMessage="Please Enter your Email"></asp:RequiredFieldValidator>
                     </div>
                     </div>
+                    
                     <div class="form-group">
                         
                         <div class="col-lg-10">
                              <asp:TextBox ID="txtBoxConfirmEmail" class="form-control"  runat="server" placeholder="Confirm Email"></asp:TextBox>
+                             <asp:CompareValidator ID="compareEmail" runat="server" ValueToCompare="txtBoxEmail" ControlToValidate="txtBoxConfirmEmail"  ErrorMessage="Please Enter Same Email" Display="Dynamic"></asp:CompareValidator>
                     </div>
                     </div>
                     <div class="form-group">
                        
                         <div class="col-lg-10">
                              <asp:TextBox ID="txtBoxPhone" class="form-control"  runat="server" placeholder="Phone"></asp:TextBox>
+                            <asp:RegularExpressionValidator ID="regExPhone" runat="server" ErrorMessage="Invalid Phone Number" ControlToValidate="txtBoxPhone" ValidationExpression="^(?:(?:\+?1*)(?:\(*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))(?:)?)([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})([0-9]{4})(?:(?:#|x\.?|ext\.?|extension)(\d+))?$"></asp:RegularExpressionValidator>
                     </div>
                     </div>
 
@@ -121,6 +130,7 @@
                         <asp:RadioButtonList ID="radioListTypeOfAcc" runat="server" 
                                 DataSourceID="SqlDataSource1" DataTextField="acType" DataValueField="acId">
                             </asp:RadioButtonList>
+                            <asp:RequiredFieldValidator ID="requiredTypeOfAccount" ControlToValidate="radioListTypeOfAcc" runat="server" ErrorMessage="Please Select a type of account"></asp:RequiredFieldValidator>
                             <br />
                             
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
@@ -138,6 +148,7 @@
                                 <asp:ListItem Value="M">Male</asp:ListItem>
                                 <asp:ListItem Value="F">Female</asp:ListItem>
                             </asp:RadioButtonList>
+                            <asp:RequiredFieldValidator ID="requiredGender" ControlToValidate="radioListGender" runat="server" ErrorMessage="Please Select a gender"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 

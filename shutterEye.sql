@@ -353,3 +353,458 @@ ALTER TABLE [dbo].[verifyUser] CHECK CONSTRAINT [FK_verifyUser_registration]
 GO
 
 
+
+/***Stored Procedures***/
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[comDel]    Script Date: 11/16/2016 12:40:11 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[comDel](@cId int)
+as 
+begin 
+delete from comment 
+where cId = @cId 
+end 
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[comIns]    Script Date: 11/16/2016 12:41:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[comIns](@uId int, @pId int, @comment varchar(max), @cDate datetime)
+as 
+begin
+insert into comment 
+values
+(
+@uId , 
+@pId ,
+@comment ,
+@cDate
+)
+end
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[comSel]    Script Date: 11/16/2016 12:41:12 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[comSel](@cId int)
+as
+begin
+select * from comment 
+where cId = @cId
+end
+GO
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[comUpd]    Script Date: 11/16/2016 12:41:23 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[comUpd](@cId int, @uId int, @pId int, @comment varchar(max), @cDate datetime)
+as 
+begin
+update comment 
+set  
+[uId] = @uId , 
+pId = @pId , 
+comment = @comment , 
+cDate = @cDate
+end
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[likDel]    Script Date: 11/16/2016 12:41:29 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[likDel](@lId int)
+as 
+begin
+delete from [like]
+where lId = @lId
+end
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[likIns]    Script Date: 11/16/2016 12:41:40 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[likIns](@uId int ,@pId int, @lDate datetime)
+as 
+begin
+insert into [like] 
+values
+(@uId ,@pId , @lDate)
+end
+
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[likSel]    Script Date: 11/16/2016 12:41:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+create procedure [dbo].[likSel](@lId int)
+as
+begin
+select * from [like]
+where lId = @lId
+end
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[phoDel]    Script Date: 11/16/2016 12:42:03 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[phoDel](@pId int)
+as
+begin
+delete from photoUpload
+where pId = @pId
+end 
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[phoIns]    Script Date: 11/16/2016 12:42:11 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure [dbo].[phoIns](
+@uId int,
+@path varchar(50),
+@phName varchar(50),
+@myReg varchar(50) = null,
+@caption varchar(50) = null,
+@phDate datetime,
+@location varchar(50) = null,
+@phType varchar(20) 
+)
+as 
+begin
+insert into photoUpload values
+(
+@uId , 
+@path ,
+@phName ,
+@myReg ,
+@caption ,
+@phDate ,
+@location ,
+@phType )
+end
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[phoSel]    Script Date: 11/16/2016 12:42:18 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[phoSel]( @pId int )
+as
+begin 
+select * from photoUpload
+where 
+pId = @pId
+end 
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[phoUpd]    Script Date: 11/16/2016 12:42:25 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[phoUpd](
+@pId int,
+@uId int,
+@path varchar(50),
+@phName varchar(50),
+@myReg varchar(50) = null,
+@caption varchar(50) = null,
+@phDate datetime,
+@location varchar(50) = null,
+@phType varchar(20) 
+)
+as
+begin
+update photoUpload
+set
+[uId] = @uId ,
+[path] = @path ,
+phName = @phName ,
+myReg = @myReg ,
+caption = @caption ,
+phDate = @phDate ,
+location = @location ,
+phType = @phType 
+end 
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[regDel]    Script Date: 11/16/2016 12:42:32 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[regDel](@uID int)
+as 
+begin
+delete from registration
+where uId = @uId
+end 
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[regIns]    Script Date: 11/16/2016 12:42:39 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure [dbo].[regIns]  
+@firstName varchar(50), 
+@lastName varchar(50) = null, 
+@userName  varchar(50), 
+@password varchar(50), 
+@emailId varchar(50),
+@mobileNo int ,
+@accountType int,
+@country varchar(50),
+@state varchar(50) = null,
+@city varchar(50) = null,
+@profilePhoto varchar(50),
+@gender varchar(20)
+as
+begin 
+insert into registration
+values
+( 
+@firstName, 
+@lastName , 
+@userName , 
+@password , 
+@emailId ,
+@mobileNo ,
+@accountType ,
+@country ,
+@state ,
+@city ,
+@profilePhoto ,
+@gender )
+end;
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[regSel]    Script Date: 11/16/2016 12:42:48 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[regSel](@uId int)
+as 
+begin 
+select * from registration 
+where uId = @uId
+end
+
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[regUpd]    Script Date: 11/16/2016 12:42:56 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE procedure [dbo].[regUpd] (
+@uId int,
+@firstName varchar(50), 
+@lastName varchar(50) = null, 
+@userName  varchar(50), 
+@password varchar(50), 
+@emailId varchar(50),
+@mobileNo int ,
+@accountType int,
+@country varchar(50),
+@state varchar(50) = null,
+@city varchar(50) = null,
+@profilePhoto varchar(50),
+@gender varchar(20) )
+as 
+begin 
+update registration 
+set
+firstName = @firstName , 
+lastName = @lastName , 
+userName = @userName  , 
+[password] = @password  , 
+emailId = @emailId   ,
+mobileNo = @mobileNo  ,
+accType = @accountType ,
+country = @country ,
+[state] = @state  ,
+city = @city  ,
+profilePhoto = @profilePhoto ,
+gender = @gender 
+where [uId] = @uId
+end
+GO
+
+
+
+
+
+USE [shutterEye]
+GO
+
+/****** Object:  StoredProcedure [dbo].[usePass]    Script Date: 11/16/2016 12:43:05 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE  proc [dbo].[usePass] ( @userName as NVarchar(150) , @password as NVarchar(150), @id int out )
+as
+begin
+	
+	select @id = [uId] from registration where [userName] = @userName 
+		and [password] = @password
+	
+	
+end
+GO
+
+

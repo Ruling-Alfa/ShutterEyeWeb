@@ -282,7 +282,7 @@ namespace shutterEyeModel1
         /// <param name="city">No Metadata Documentation available.</param>
         /// <param name="profilePhoto">No Metadata Documentation available.</param>
         /// <param name="gender">No Metadata Documentation available.</param>
-        public int regIns(global::System.String firstName, global::System.String lastName, global::System.String userName, global::System.String password, global::System.String emailId, Nullable<global::System.Int32> mobileNo, Nullable<global::System.Int32> accountType, global::System.String country, global::System.String state, global::System.String city, global::System.String profilePhoto, global::System.String gender)
+        public int regIns(global::System.String firstName, global::System.String lastName, global::System.String userName, global::System.String password, global::System.String emailId, Nullable<global::System.Int64> mobileNo, Nullable<global::System.Int32> accountType, global::System.String country, global::System.String state, global::System.String city, global::System.String profilePhoto, global::System.String gender)
         {
             ObjectParameter firstNameParameter;
             if (firstName != null)

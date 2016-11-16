@@ -28,10 +28,10 @@ public partial class Registration : System.Web.UI.Page
             accType = Convert.ToInt32(accTypeString);
         }
         string phoneString = txtBoxPhone .Text;
-        int phone=0;
+        long phone=0;
         if (phoneString != null)
         {
-            phone = Convert.ToInt32(phoneString);
+            phone = Convert.ToInt64(phoneString);
         }
         string country = txtBoxCountry.Text;
         string state = txtBoxState.Text;

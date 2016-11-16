@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="shutterEyeModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="shutterEyeModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="shutterEyeModel1StoreContainer">
           <EntitySet Name="accType" EntityType="shutterEyeModel1.Store.accType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="comment" EntityType="shutterEyeModel1.Store.comment" store:Type="Tables" Schema="dbo" />
@@ -91,7 +91,7 @@
           <Property Name="userName" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="password" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="emailId" Type="varchar" Nullable="false" MaxLength="80" />
-          <Property Name="mobileNo" Type="int" />
+          <Property Name="mobileNo" Type="numeric" Precision="12" />
           <Property Name="country" Type="varchar" MaxLength="50" />
           <Property Name="state" Type="varchar" MaxLength="50" />
           <Property Name="city" Type="varchar" MaxLength="50" />
@@ -293,8 +293,7 @@
         <Function Name="verIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="uId" Type="int" Mode="In" />
         </Function>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="shutterEyeModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -334,10 +333,10 @@
             <End Role="verifyUser" EntitySet="verifyUsers" />
           </AssociationSet>
           <FunctionImport Name="verIns">
-            <Parameter Name="uId" Mode="In" Type="Int32" />
+          <Parameter Name="uId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="regSel">
-            <Parameter Name="uId" Mode="In" Type="Int32" />
+          <Parameter Name="uId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="regIns">
             <Parameter Name="firstName" Mode="In" Type="String" />

@@ -4,39 +4,39 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="shutterEyeModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="shutterEyeModel1StoreContainer">
-          <EntitySet Name="accType" EntityType="shutterEyeModel1.Store.accType" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="comment" EntityType="shutterEyeModel1.Store.comment" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="like" EntityType="shutterEyeModel1.Store.like" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="photoUpload" EntityType="shutterEyeModel1.Store.photoUpload" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="registration" EntityType="shutterEyeModel1.Store.registration" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="verifyUser" EntityType="shutterEyeModel1.Store.verifyUser" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_comment_photoUpload" Association="shutterEyeModel1.Store.FK_comment_photoUpload">
+    <Schema Namespace="shutterEyeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="shutterEyeModelStoreContainer">
+          <EntitySet Name="accType" EntityType="shutterEyeModel.Store.accType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="comment" EntityType="shutterEyeModel.Store.comment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="like" EntityType="shutterEyeModel.Store.like" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="photoUpload" EntityType="shutterEyeModel.Store.photoUpload" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="registration" EntityType="shutterEyeModel.Store.registration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="verifyUser" EntityType="shutterEyeModel.Store.verifyUser" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_comment_photoUpload" Association="shutterEyeModel.Store.FK_comment_photoUpload">
             <End Role="photoUpload" EntitySet="photoUpload" />
             <End Role="comment" EntitySet="comment" />
           </AssociationSet>
-          <AssociationSet Name="FK_comment_registration" Association="shutterEyeModel1.Store.FK_comment_registration">
+          <AssociationSet Name="FK_comment_registration" Association="shutterEyeModel.Store.FK_comment_registration">
             <End Role="registration" EntitySet="registration" />
             <End Role="comment" EntitySet="comment" />
           </AssociationSet>
-          <AssociationSet Name="FK_like_photoUpload" Association="shutterEyeModel1.Store.FK_like_photoUpload">
+          <AssociationSet Name="FK_like_photoUpload" Association="shutterEyeModel.Store.FK_like_photoUpload">
             <End Role="photoUpload" EntitySet="photoUpload" />
             <End Role="like" EntitySet="like" />
           </AssociationSet>
-          <AssociationSet Name="FK_like_registration" Association="shutterEyeModel1.Store.FK_like_registration">
+          <AssociationSet Name="FK_like_registration" Association="shutterEyeModel.Store.FK_like_registration">
             <End Role="registration" EntitySet="registration" />
             <End Role="like" EntitySet="like" />
           </AssociationSet>
-          <AssociationSet Name="FK_photoUpload_registration1" Association="shutterEyeModel1.Store.FK_photoUpload_registration1">
+          <AssociationSet Name="FK_photoUpload_registration1" Association="shutterEyeModel.Store.FK_photoUpload_registration1">
             <End Role="registration" EntitySet="registration" />
             <End Role="photoUpload" EntitySet="photoUpload" />
           </AssociationSet>
-          <AssociationSet Name="FK_registration_accType" Association="shutterEyeModel1.Store.FK_registration_accType">
+          <AssociationSet Name="FK_registration_accType" Association="shutterEyeModel.Store.FK_registration_accType">
             <End Role="accType" EntitySet="accType" />
             <End Role="registration" EntitySet="registration" />
           </AssociationSet>
-          <AssociationSet Name="FK_verifyUser_registration" Association="shutterEyeModel1.Store.FK_verifyUser_registration">
+          <AssociationSet Name="FK_verifyUser_registration" Association="shutterEyeModel.Store.FK_verifyUser_registration">
             <End Role="registration" EntitySet="registration" />
             <End Role="verifyUser" EntitySet="verifyUser" />
           </AssociationSet>
@@ -107,8 +107,8 @@
           <Property Name="uId" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_comment_photoUpload">
-          <End Role="photoUpload" Type="shutterEyeModel1.Store.photoUpload" Multiplicity="1" />
-          <End Role="comment" Type="shutterEyeModel1.Store.comment" Multiplicity="*" />
+          <End Role="photoUpload" Type="shutterEyeModel.Store.photoUpload" Multiplicity="1" />
+          <End Role="comment" Type="shutterEyeModel.Store.comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="photoUpload">
               <PropertyRef Name="pId" />
@@ -119,8 +119,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_comment_registration">
-          <End Role="registration" Type="shutterEyeModel1.Store.registration" Multiplicity="1" />
-          <End Role="comment" Type="shutterEyeModel1.Store.comment" Multiplicity="*" />
+          <End Role="registration" Type="shutterEyeModel.Store.registration" Multiplicity="1" />
+          <End Role="comment" Type="shutterEyeModel.Store.comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="registration">
               <PropertyRef Name="uId" />
@@ -131,8 +131,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_like_photoUpload">
-          <End Role="photoUpload" Type="shutterEyeModel1.Store.photoUpload" Multiplicity="1" />
-          <End Role="like" Type="shutterEyeModel1.Store.like" Multiplicity="*" />
+          <End Role="photoUpload" Type="shutterEyeModel.Store.photoUpload" Multiplicity="1" />
+          <End Role="like" Type="shutterEyeModel.Store.like" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="photoUpload">
               <PropertyRef Name="pId" />
@@ -143,8 +143,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_like_registration">
-          <End Role="registration" Type="shutterEyeModel1.Store.registration" Multiplicity="1" />
-          <End Role="like" Type="shutterEyeModel1.Store.like" Multiplicity="*" />
+          <End Role="registration" Type="shutterEyeModel.Store.registration" Multiplicity="1" />
+          <End Role="like" Type="shutterEyeModel.Store.like" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="registration">
               <PropertyRef Name="uId" />
@@ -155,8 +155,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_photoUpload_registration1">
-          <End Role="registration" Type="shutterEyeModel1.Store.registration" Multiplicity="1" />
-          <End Role="photoUpload" Type="shutterEyeModel1.Store.photoUpload" Multiplicity="*" />
+          <End Role="registration" Type="shutterEyeModel.Store.registration" Multiplicity="1" />
+          <End Role="photoUpload" Type="shutterEyeModel.Store.photoUpload" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="registration">
               <PropertyRef Name="uId" />
@@ -167,8 +167,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_registration_accType">
-          <End Role="accType" Type="shutterEyeModel1.Store.accType" Multiplicity="1" />
-          <End Role="registration" Type="shutterEyeModel1.Store.registration" Multiplicity="*" />
+          <End Role="accType" Type="shutterEyeModel.Store.accType" Multiplicity="1" />
+          <End Role="registration" Type="shutterEyeModel.Store.registration" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="accType">
               <PropertyRef Name="acId" />
@@ -179,8 +179,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_verifyUser_registration">
-          <End Role="registration" Type="shutterEyeModel1.Store.registration" Multiplicity="1" />
-          <End Role="verifyUser" Type="shutterEyeModel1.Store.verifyUser" Multiplicity="*" />
+          <End Role="registration" Type="shutterEyeModel.Store.registration" Multiplicity="1" />
+          <End Role="verifyUser" Type="shutterEyeModel.Store.verifyUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="registration">
               <PropertyRef Name="uId" />
@@ -293,52 +293,50 @@
         <Function Name="verIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="uId" Type="int" Mode="In" />
         </Function>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="shutterEyeModel1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="shutterEyeEntities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="accTypes" EntityType="shutterEyeModel1.accType" />
-          <EntitySet Name="comments" EntityType="shutterEyeModel1.comment" />
-          <EntitySet Name="likes" EntityType="shutterEyeModel1.like" />
-          <EntitySet Name="photoUploads" EntityType="shutterEyeModel1.photoUpload" />
-          <EntitySet Name="registrations" EntityType="shutterEyeModel1.registration" />
-          <EntitySet Name="verifyUsers" EntityType="shutterEyeModel1.verifyUser" />
-          <AssociationSet Name="FK_registration_accType" Association="shutterEyeModel1.FK_registration_accType">
+      <Schema Namespace="shutterEyeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="shutterEyeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="comments" EntityType="shutterEyeModel.comment" />
+          <EntitySet Name="likes" EntityType="shutterEyeModel.like" />
+          <EntitySet Name="photoUploads" EntityType="shutterEyeModel.photoUpload" />
+          <EntitySet Name="registrations" EntityType="shutterEyeModel.registration" />
+          <AssociationSet Name="FK_comment_photoUpload" Association="shutterEyeModel.FK_comment_photoUpload">
+            <End Role="photoUpload" EntitySet="photoUploads" />
+            <End Role="comment" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_comment_registration" Association="shutterEyeModel.FK_comment_registration">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="comment" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_photoUpload" Association="shutterEyeModel.FK_like_photoUpload">
+            <End Role="photoUpload" EntitySet="photoUploads" />
+            <End Role="like" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_like_registration" Association="shutterEyeModel.FK_like_registration">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="like" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_photoUpload_registration1" Association="shutterEyeModel.FK_photoUpload_registration1">
+            <End Role="registration" EntitySet="registrations" />
+            <End Role="photoUpload" EntitySet="photoUploads" />
+          </AssociationSet>
+          <FunctionImport Name="usePassSp">
+            <Parameter Name="userName" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="id" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="accTypes" EntityType="shutterEyeModel.accType" />
+          <EntitySet Name="verifyUsers" EntityType="shutterEyeModel.verifyUser" />
+          <AssociationSet Name="FK_registration_accType" Association="shutterEyeModel.FK_registration_accType">
             <End Role="accType" EntitySet="accTypes" />
             <End Role="registration" EntitySet="registrations" />
           </AssociationSet>
-          <AssociationSet Name="FK_comment_photoUpload" Association="shutterEyeModel1.FK_comment_photoUpload">
-            <End Role="photoUpload" EntitySet="photoUploads" />
-            <End Role="comment" EntitySet="comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_comment_registration" Association="shutterEyeModel1.FK_comment_registration">
-            <End Role="registration" EntitySet="registrations" />
-            <End Role="comment" EntitySet="comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_like_photoUpload" Association="shutterEyeModel1.FK_like_photoUpload">
-            <End Role="photoUpload" EntitySet="photoUploads" />
-            <End Role="like" EntitySet="likes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_like_registration" Association="shutterEyeModel1.FK_like_registration">
-            <End Role="registration" EntitySet="registrations" />
-            <End Role="like" EntitySet="likes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_photoUpload_registration1" Association="shutterEyeModel1.FK_photoUpload_registration1">
-            <End Role="registration" EntitySet="registrations" />
-            <End Role="photoUpload" EntitySet="photoUploads" />
-          </AssociationSet>
-          <AssociationSet Name="FK_verifyUser_registration" Association="shutterEyeModel1.FK_verifyUser_registration">
+          <AssociationSet Name="FK_verifyUser_registration" Association="shutterEyeModel.FK_verifyUser_registration">
             <End Role="registration" EntitySet="registrations" />
             <End Role="verifyUser" EntitySet="verifyUsers" />
           </AssociationSet>
-          <FunctionImport Name="verIns">
-            <Parameter Name="uId" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="regSel">
-            <Parameter Name="uId" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="regIns">
             <Parameter Name="firstName" Mode="In" Type="String" />
             <Parameter Name="lastName" Mode="In" Type="String" />
@@ -353,15 +351,10 @@
             <Parameter Name="profilePhoto" Mode="In" Type="String" />
             <Parameter Name="gender" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="verIns">
+          <Parameter Name="uId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
-        <EntityType Name="accType">
-          <Key>
-            <PropertyRef Name="acId" />
-          </Key>
-          <Property Name="acId" Type="Int32" Nullable="false" />
-          <Property Name="acType" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="registrations" Relationship="shutterEyeModel1.FK_registration_accType" FromRole="accType" ToRole="registration" />
-        </EntityType>
         <EntityType Name="comment">
           <Key>
             <PropertyRef Name="cId" />
@@ -371,8 +364,8 @@
           <Property Name="pId" Type="Int32" Nullable="false" />
           <Property Name="comment1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <Property Name="cDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="photoUpload" Relationship="shutterEyeModel1.FK_comment_photoUpload" FromRole="comment" ToRole="photoUpload" />
-          <NavigationProperty Name="registration" Relationship="shutterEyeModel1.FK_comment_registration" FromRole="comment" ToRole="registration" />
+          <NavigationProperty Name="photoUpload" Relationship="shutterEyeModel.FK_comment_photoUpload" FromRole="comment" ToRole="photoUpload" />
+          <NavigationProperty Name="registration" Relationship="shutterEyeModel.FK_comment_registration" FromRole="comment" ToRole="registration" />
         </EntityType>
         <EntityType Name="like">
           <Key>
@@ -382,8 +375,8 @@
           <Property Name="uId" Type="Int32" Nullable="false" />
           <Property Name="pId" Type="Int32" Nullable="false" />
           <Property Name="lDate" Type="DateTime" Nullable="false" />
-          <NavigationProperty Name="photoUpload" Relationship="shutterEyeModel1.FK_like_photoUpload" FromRole="like" ToRole="photoUpload" />
-          <NavigationProperty Name="registration" Relationship="shutterEyeModel1.FK_like_registration" FromRole="like" ToRole="registration" />
+          <NavigationProperty Name="photoUpload" Relationship="shutterEyeModel.FK_like_photoUpload" FromRole="like" ToRole="photoUpload" />
+          <NavigationProperty Name="registration" Relationship="shutterEyeModel.FK_like_registration" FromRole="like" ToRole="registration" />
         </EntityType>
         <EntityType Name="photoUpload">
           <Key>
@@ -398,56 +391,36 @@
           <Property Name="phDate" Type="DateTime" Nullable="false" />
           <Property Name="location" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="phType" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
-          <NavigationProperty Name="comments" Relationship="shutterEyeModel1.FK_comment_photoUpload" FromRole="photoUpload" ToRole="comment" />
-          <NavigationProperty Name="likes" Relationship="shutterEyeModel1.FK_like_photoUpload" FromRole="photoUpload" ToRole="like" />
-          <NavigationProperty Name="registration" Relationship="shutterEyeModel1.FK_photoUpload_registration1" FromRole="photoUpload" ToRole="registration" />
+          <NavigationProperty Name="comments" Relationship="shutterEyeModel.FK_comment_photoUpload" FromRole="photoUpload" ToRole="comment" />
+          <NavigationProperty Name="likes" Relationship="shutterEyeModel.FK_like_photoUpload" FromRole="photoUpload" ToRole="like" />
+          <NavigationProperty Name="registration" Relationship="shutterEyeModel.FK_photoUpload_registration1" FromRole="photoUpload" ToRole="registration" />
         </EntityType>
         <EntityType Name="registration">
           <Key>
             <PropertyRef Name="uId" />
           </Key>
           <Property Name="uId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="firstName" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
-          <Property Name="lastName" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
-          <Property Name="userName" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="emailId" Type="String" Nullable="false" MaxLength="80" Unicode="false" FixedLength="false" />
-          <Property Name="mobileNo" Type="Int32" />
-          <Property Name="country" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="emailId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="mobileNo" Type="Int32" Nullable="true" />
+          <Property Name="country" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="state" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="city" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="profilePhoto" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
-          <Property Name="gender" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
-          <Property Name="accType" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="accType1" Relationship="shutterEyeModel1.FK_registration_accType" FromRole="registration" ToRole="accType" />
-          <NavigationProperty Name="comments" Relationship="shutterEyeModel1.FK_comment_registration" FromRole="registration" ToRole="comment" />
-          <NavigationProperty Name="likes" Relationship="shutterEyeModel1.FK_like_registration" FromRole="registration" ToRole="like" />
-          <NavigationProperty Name="photoUploads" Relationship="shutterEyeModel1.FK_photoUpload_registration1" FromRole="registration" ToRole="photoUpload" />
-          <NavigationProperty Name="verifyUsers" Relationship="shutterEyeModel1.FK_verifyUser_registration" FromRole="registration" ToRole="verifyUser" />
+          <Property Name="profilePhoto" Type="String" Nullable="true" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="comments" Relationship="shutterEyeModel.FK_comment_registration" FromRole="registration" ToRole="comment" />
+          <NavigationProperty Name="likes" Relationship="shutterEyeModel.FK_like_registration" FromRole="registration" ToRole="like" />
+          <NavigationProperty Name="photoUploads" Relationship="shutterEyeModel.FK_photoUpload_registration1" FromRole="registration" ToRole="photoUpload" />
+          <Property Type="Int32" Name="accType" Nullable="false" />
+          <NavigationProperty Name="accType1" Relationship="shutterEyeModel.FK_registration_accType" FromRole="registration" ToRole="accType" />
+          <NavigationProperty Name="verifyUsers" Relationship="shutterEyeModel.FK_verifyUser_registration" FromRole="registration" ToRole="verifyUser" />
         </EntityType>
-        <EntityType Name="verifyUser">
-          <Key>
-            <PropertyRef Name="vId" />
-          </Key>
-          <Property Name="vId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="uId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="registration" Relationship="shutterEyeModel1.FK_verifyUser_registration" FromRole="verifyUser" ToRole="registration" />
-        </EntityType>
-        <Association Name="FK_registration_accType">
-          <End Role="accType" Type="shutterEyeModel1.accType" Multiplicity="1" />
-          <End Role="registration" Type="shutterEyeModel1.registration" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="accType">
-              <PropertyRef Name="acId" />
-            </Principal>
-            <Dependent Role="registration">
-              <PropertyRef Name="accType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_comment_photoUpload">
-          <End Role="photoUpload" Type="shutterEyeModel1.photoUpload" Multiplicity="1" />
-          <End Role="comment" Type="shutterEyeModel1.comment" Multiplicity="*" />
+          <End Role="photoUpload" Type="shutterEyeModel.photoUpload" Multiplicity="1" />
+          <End Role="comment" Type="shutterEyeModel.comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="photoUpload">
               <PropertyRef Name="pId" />
@@ -458,8 +431,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_comment_registration">
-          <End Role="registration" Type="shutterEyeModel1.registration" Multiplicity="1" />
-          <End Role="comment" Type="shutterEyeModel1.comment" Multiplicity="*" />
+          <End Role="registration" Type="shutterEyeModel.registration" Multiplicity="1" />
+          <End Role="comment" Type="shutterEyeModel.comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="registration">
               <PropertyRef Name="uId" />
@@ -470,8 +443,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_like_photoUpload">
-          <End Role="photoUpload" Type="shutterEyeModel1.photoUpload" Multiplicity="1" />
-          <End Role="like" Type="shutterEyeModel1.like" Multiplicity="*" />
+          <End Role="photoUpload" Type="shutterEyeModel.photoUpload" Multiplicity="1" />
+          <End Role="like" Type="shutterEyeModel.like" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="photoUpload">
               <PropertyRef Name="pId" />
@@ -482,8 +455,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_like_registration">
-          <End Role="registration" Type="shutterEyeModel1.registration" Multiplicity="1" />
-          <End Role="like" Type="shutterEyeModel1.like" Multiplicity="*" />
+          <End Role="registration" Type="shutterEyeModel.registration" Multiplicity="1" />
+          <End Role="like" Type="shutterEyeModel.like" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="registration">
               <PropertyRef Name="uId" />
@@ -494,8 +467,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_photoUpload_registration1">
-          <End Role="registration" Type="shutterEyeModel1.registration" Multiplicity="1" />
-          <End Role="photoUpload" Type="shutterEyeModel1.photoUpload" Multiplicity="*" />
+          <End Role="registration" Type="shutterEyeModel.registration" Multiplicity="1" />
+          <End Role="photoUpload" Type="shutterEyeModel.photoUpload" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="registration">
               <PropertyRef Name="uId" />
@@ -505,9 +478,37 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="accType">
+          <Key>
+            <PropertyRef Name="acId" />
+          </Key>
+          <Property Type="Int32" Name="acId" Nullable="false" />
+          <Property Type="String" Name="acType" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="registrations" Relationship="shutterEyeModel.FK_registration_accType" FromRole="accType" ToRole="registration" />
+        </EntityType>
+        <EntityType Name="verifyUser">
+          <Key>
+            <PropertyRef Name="vId" />
+          </Key>
+          <Property Type="Int32" Name="vId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="uId" Nullable="false" />
+          <NavigationProperty Name="registration" Relationship="shutterEyeModel.FK_verifyUser_registration" FromRole="verifyUser" ToRole="registration" />
+        </EntityType>
+        <Association Name="FK_registration_accType">
+          <End Type="shutterEyeModel.accType" Role="accType" Multiplicity="1" />
+          <End Type="shutterEyeModel.registration" Role="registration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accType">
+              <PropertyRef Name="acId" />
+            </Principal>
+            <Dependent Role="registration">
+              <PropertyRef Name="accType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_verifyUser_registration">
-          <End Role="registration" Type="shutterEyeModel1.registration" Multiplicity="1" />
-          <End Role="verifyUser" Type="shutterEyeModel1.verifyUser" Multiplicity="*" />
+          <End Type="shutterEyeModel.registration" Role="registration" Multiplicity="1" />
+          <End Type="shutterEyeModel.verifyUser" Role="verifyUser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="registration">
               <PropertyRef Name="uId" />
@@ -522,17 +523,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="shutterEyeModel1StoreContainer" CdmEntityContainer="shutterEyeEntities2">
-          <EntitySetMapping Name="accTypes">
-            <EntityTypeMapping TypeName="shutterEyeModel1.accType">
-              <MappingFragment StoreEntitySet="accType">
-                <ScalarProperty Name="acId" ColumnName="acId" />
-                <ScalarProperty Name="acType" ColumnName="acType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="shutterEyeModelStoreContainer" CdmEntityContainer="shutterEyeEntities">
           <EntitySetMapping Name="comments">
-            <EntityTypeMapping TypeName="shutterEyeModel1.comment">
+            <EntityTypeMapping TypeName="shutterEyeModel.comment">
               <MappingFragment StoreEntitySet="comment">
                 <ScalarProperty Name="cId" ColumnName="cId" />
                 <ScalarProperty Name="uId" ColumnName="uId" />
@@ -543,7 +536,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="likes">
-            <EntityTypeMapping TypeName="shutterEyeModel1.like">
+            <EntityTypeMapping TypeName="shutterEyeModel.like">
               <MappingFragment StoreEntitySet="like">
                 <ScalarProperty Name="lId" ColumnName="lId" />
                 <ScalarProperty Name="uId" ColumnName="uId" />
@@ -553,7 +546,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="photoUploads">
-            <EntityTypeMapping TypeName="shutterEyeModel1.photoUpload">
+            <EntityTypeMapping TypeName="shutterEyeModel.photoUpload">
               <MappingFragment StoreEntitySet="photoUpload">
                 <ScalarProperty Name="pId" ColumnName="pId" />
                 <ScalarProperty Name="uId" ColumnName="uId" />
@@ -568,8 +561,9 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="registrations">
-            <EntityTypeMapping TypeName="shutterEyeModel1.registration">
+            <EntityTypeMapping TypeName="shutterEyeModel.registration">
               <MappingFragment StoreEntitySet="registration">
+                <ScalarProperty Name="accType" ColumnName="accType" />
                 <ScalarProperty Name="uId" ColumnName="uId" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
@@ -582,21 +576,28 @@
                 <ScalarProperty Name="city" ColumnName="city" />
                 <ScalarProperty Name="profilePhoto" ColumnName="profilePhoto" />
                 <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="accType" ColumnName="accType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usePassSp" FunctionName="shutterEyeModel.Store.usePass" />
+          <EntitySetMapping Name="accTypes">
+            <EntityTypeMapping TypeName="shutterEyeModel.accType">
+              <MappingFragment StoreEntitySet="accType">
+                <ScalarProperty Name="acType" ColumnName="acType" />
+                <ScalarProperty Name="acId" ColumnName="acId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="verifyUsers">
-            <EntityTypeMapping TypeName="shutterEyeModel1.verifyUser">
+            <EntityTypeMapping TypeName="shutterEyeModel.verifyUser">
               <MappingFragment StoreEntitySet="verifyUser">
-                <ScalarProperty Name="vId" ColumnName="vId" />
                 <ScalarProperty Name="uId" ColumnName="uId" />
+                <ScalarProperty Name="vId" ColumnName="vId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="verIns" FunctionName="shutterEyeModel1.Store.verIns" />
-          <FunctionImportMapping FunctionImportName="regSel" FunctionName="shutterEyeModel1.Store.regSel" />
-          <FunctionImportMapping FunctionImportName="regIns" FunctionName="shutterEyeModel1.Store.regIns" />
+          <FunctionImportMapping FunctionImportName="regIns" FunctionName="shutterEyeModel.Store.regIns" />
+          <FunctionImportMapping FunctionImportName="verIns" FunctionName="shutterEyeModel.Store.verIns" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -617,50 +618,45 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ShutterDB">
-        <EntityTypeShape EntityType="shutterEyeModel1.accType" Width="1.5" PointX="0.75" PointY="6.5" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="shutterEyeModel1.comment" Width="1.5" PointX="7.5" PointY="8.25" Height="2.3648893229166674" IsExpanded="true" />
-        <EntityTypeShape EntityType="shutterEyeModel1.like" Width="1.5" PointX="7.5" PointY="11.375" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="shutterEyeModel1.photoUpload" Width="1.5" PointX="5.25" PointY="10.5" Height="3.3263964843749996" IsExpanded="true" />
-        <EntityTypeShape EntityType="shutterEyeModel1.registration" Width="1.5" PointX="3" PointY="5" Height="4.480205078125" IsExpanded="true" />
-        <EntityTypeShape EntityType="shutterEyeModel1.verifyUser" Width="1.5" PointX="5.25" PointY="14.5" Height="1.5956835937499978" IsExpanded="true" />
-        <AssociationConnector Association="shutterEyeModel1.FK_registration_accType" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="7.297841796875" />
-          <ConnectorPoint PointX="3" PointY="7.297841796875" />
+      <Diagram Name="ShutterDB" ZoomLevel="72">
+        <EntityTypeShape EntityType="shutterEyeModel.comment" Width="1.5" PointX="5.25" PointY="7.625" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="shutterEyeModel.like" Width="1.5" PointX="5.25" PointY="10.75" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="shutterEyeModel.photoUpload" Width="1.5" PointX="3" PointY="10.375" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="shutterEyeModel.registration" Width="1.5" PointX="0.75" PointY="3.875" Height="4.480205078125" IsExpanded="true" />
+        <AssociationConnector Association="shutterEyeModel.FK_comment_photoUpload" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.75" PointY="10.375" />
+          <ConnectorPoint PointX="3.75" PointY="8.8074446614583337" />
+          <ConnectorPoint PointX="5.25" PointY="8.8074446614583337" />
         </AssociationConnector>
-        <AssociationConnector Association="shutterEyeModel1.FK_comment_photoUpload" ManuallyRouted="false">
-          <ConnectorPoint PointX="6" PointY="10.5" />
-          <ConnectorPoint PointX="6" PointY="9.3749995000000013" />
-          <ConnectorPoint PointX="7.5" PointY="9.3749995000000013" />
+        <AssociationConnector Association="shutterEyeModel.FK_comment_registration" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.9901025390625" />
+          <ConnectorPoint PointX="5.25" PointY="7.9901025390625" />
         </AssociationConnector>
-        <AssociationConnector Association="shutterEyeModel1.FK_comment_registration" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="8.74999975" />
-          <ConnectorPoint PointX="7.5" PointY="8.74999975" />
+        <AssociationConnector Association="shutterEyeModel.FK_like_photoUpload" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="11.8362939453125" />
+          <ConnectorPoint PointX="5.25" PointY="11.8362939453125" />
         </AssociationConnector>
-        <AssociationConnector Association="shutterEyeModel1.FK_like_photoUpload" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.75" PointY="12.4612939453125" />
-          <ConnectorPoint PointX="7.5" PointY="12.4612939453125" />
+        <AssociationConnector Association="shutterEyeModel.FK_like_registration" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.2499999999999996" PointY="8.355205078125" />
+          <ConnectorPoint PointX="2.625" PointY="8.730205078125" />
+          <ConnectorPoint PointX="4.875" PointY="8.730205078125" />
+          <ConnectorPoint PointX="4.875" PointY="10.373847153846153" />
+          <ConnectorPoint PointX="5.2511528461538459" PointY="10.75" />
         </AssociationConnector>
-        <AssociationConnector Association="shutterEyeModel1.FK_like_registration" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="9.480205078125" />
-          <ConnectorPoint PointX="4.875" PointY="9.855205078125" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="9.855205078125" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="9.855205078125" />
-          <ConnectorPoint PointX="7.125" PointY="9.855205078125" />
-          <ConnectorPoint PointX="7.125" PointY="10.998847153846153" />
-          <ConnectorPoint PointX="7.5011528461538459" PointY="11.375" />
+        <AssociationConnector Association="shutterEyeModel.FK_photoUpload_registration1" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.4687474999999997" PointY="8.355205078125" />
+          <ConnectorPoint PointX="1.4687474999999997" PointY="12.0381982421875" />
+          <ConnectorPoint PointX="3" PointY="12.0381982421875" />
         </AssociationConnector>
-        <AssociationConnector Association="shutterEyeModel1.FK_photoUpload_registration1" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.7187475" PointY="9.480205078125" />
-          <ConnectorPoint PointX="3.7187475" PointY="12.1631982421875" />
-          <ConnectorPoint PointX="4.0260404166666666" PointY="12.1631982421875" />
-          <ConnectorPoint PointX="4.1927070833333326" PointY="12.1631982421875" />
-          <ConnectorPoint PointX="5.25" PointY="12.1631982421875" />
+        <EntityTypeShape EntityType="shutterEyeModel.accType" Width="1.5" PointX="0.75" PointY="1.375" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="shutterEyeModel.verifyUser" Width="1.5" PointX="3" PointY="5.375" Height="1.5956835937499996" />
+        <AssociationConnector Association="shutterEyeModel.FK_registration_accType" >
+          <ConnectorPoint PointX="1.5" PointY="2.9706835937499996" />
+          <ConnectorPoint PointX="1.5" PointY="3.875" />
         </AssociationConnector>
-        <AssociationConnector Association="shutterEyeModel1.FK_verifyUser_registration" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.10937375" PointY="9.480205078125" />
-          <ConnectorPoint PointX="4.10937375" PointY="15.297841796874998" />
-          <ConnectorPoint PointX="5.25" PointY="15.297841796874998" />
+        <AssociationConnector Association="shutterEyeModel.FK_verifyUser_registration" >
+          <ConnectorPoint PointX="2.25" PointY="6.172841796875" />
+          <ConnectorPoint PointX="3" PointY="6.172841796875" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

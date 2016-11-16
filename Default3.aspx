@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default3.aspx.cs" Inherits="Default3" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -66,20 +66,19 @@
                     
                     <div class="form-group">
                         <div class="col-lg-10">
-                            <asp:TextBox ID="txtBoxUserName" class="form-control"  runat="server" placeholder="Username"></asp:TextBox>
+                            <asp:TextBox ID="txtUserName" class="form-control"  runat="server" placeholder="Username"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10">
-                            <asp:TextBox ID="txtBoxPassword" TextMode="Password" class="form-control"  runat="server" placeholder="Password"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword" class="form-control"  runat="server" placeholder="Password"></asp:TextBox>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
                         <asp:Button ID="btnLogin" runat="server" text="Login" Font-Bold="true" 
-                                BackColor="#009900" ForeColor="Black" Font-Size="Large" 
-                                onclick="btnLogin_Click"/>                          
-                        <asp:Button ID="btnRegister" runat="server" text="Register" Font-Bold="true" BackColor="#ff6600" ForeColor="Black" Font-Size="Large" OnClick="btnRegister_Click"/>                          
+                                BackColor="#009900" ForeColor="Black" Font-Size="Large"/>                          
+                        <asp:Button ID="btnRegister" runat="server" text="Register" Font-Bold="true" BackColor="#ff6600" ForeColor="Black" Font-Size="Large"/>                          
                         </div>
                   
                     <div class="form-group">

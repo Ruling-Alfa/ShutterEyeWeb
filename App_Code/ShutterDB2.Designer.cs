@@ -19,49 +19,49 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("shutterEyeModel1", "FK_registration_accType", "accType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel1.accType), "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel1.registration), true)]
-[assembly: EdmRelationshipAttribute("shutterEyeModel1", "FK_comment_photoUpload", "photoUpload", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel1.photoUpload), "comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel1.comment), true)]
-[assembly: EdmRelationshipAttribute("shutterEyeModel1", "FK_comment_registration", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel1.registration), "comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel1.comment), true)]
-[assembly: EdmRelationshipAttribute("shutterEyeModel1", "FK_like_photoUpload", "photoUpload", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel1.photoUpload), "like", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel1.like), true)]
-[assembly: EdmRelationshipAttribute("shutterEyeModel1", "FK_like_registration", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel1.registration), "like", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel1.like), true)]
-[assembly: EdmRelationshipAttribute("shutterEyeModel1", "FK_photoUpload_registration1", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel1.registration), "photoUpload", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel1.photoUpload), true)]
-[assembly: EdmRelationshipAttribute("shutterEyeModel1", "FK_verifyUser_registration", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel1.registration), "verifyUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel1.verifyUser), true)]
+[assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_comment_photoUpload", "photoUpload", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.photoUpload), "comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.comment), true)]
+[assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_comment_registration", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.registration), "comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.comment), true)]
+[assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_like_photoUpload", "photoUpload", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.photoUpload), "like", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.like), true)]
+[assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_like_registration", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.registration), "like", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.like), true)]
+[assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_photoUpload_registration1", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.registration), "photoUpload", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.photoUpload), true)]
+[assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_registration_accType", "accType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.accType), "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.registration), true)]
+[assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_verifyUser_registration", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.registration), "verifyUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.verifyUser), true)]
 
 #endregion
 
-namespace shutterEyeModel1
+namespace shutterEyeModel
 {
     #region Contexts
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class shutterEyeEntities2 : ObjectContext
+    public partial class shutterEyeEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new shutterEyeEntities2 object using the connection string found in the 'shutterEyeEntities2' section of the application configuration file.
+        /// Initializes a new shutterEyeEntities object using the connection string found in the 'shutterEyeEntities' section of the application configuration file.
         /// </summary>
-        public shutterEyeEntities2() : base("name=shutterEyeEntities2", "shutterEyeEntities2")
+        public shutterEyeEntities() : base("name=shutterEyeEntities", "shutterEyeEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new shutterEyeEntities2 object.
+        /// Initialize a new shutterEyeEntities object.
         /// </summary>
-        public shutterEyeEntities2(string connectionString) : base(connectionString, "shutterEyeEntities2")
+        public shutterEyeEntities(string connectionString) : base(connectionString, "shutterEyeEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new shutterEyeEntities2 object.
+        /// Initialize a new shutterEyeEntities object.
         /// </summary>
-        public shutterEyeEntities2(EntityConnection connection) : base(connection, "shutterEyeEntities2")
+        public shutterEyeEntities(EntityConnection connection) : base(connection, "shutterEyeEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -76,22 +76,6 @@ namespace shutterEyeModel1
         #endregion
     
         #region ObjectSet Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<accType> accTypes
-        {
-            get
-            {
-                if ((_accTypes == null))
-                {
-                    _accTypes = base.CreateObjectSet<accType>("accTypes");
-                }
-                return _accTypes;
-            }
-        }
-        private ObjectSet<accType> _accTypes;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -160,6 +144,22 @@ namespace shutterEyeModel1
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<accType> accTypes
+        {
+            get
+            {
+                if ((_accTypes == null))
+                {
+                    _accTypes = base.CreateObjectSet<accType>("accTypes");
+                }
+                return _accTypes;
+            }
+        }
+        private ObjectSet<accType> _accTypes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<verifyUser> verifyUsers
         {
             get
@@ -176,14 +176,6 @@ namespace shutterEyeModel1
         #endregion
 
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the accTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToaccTypes(accType accType)
-        {
-            base.AddObject("accTypes", accType);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the comments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -218,6 +210,14 @@ namespace shutterEyeModel1
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the accTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaccTypes(accType accType)
+        {
+            base.AddObject("accTypes", accType);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the verifyUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToverifyUsers(verifyUser verifyUser)
@@ -232,39 +232,32 @@ namespace shutterEyeModel1
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        /// <param name="uId">No Metadata Documentation available.</param>
-        public int verIns(Nullable<global::System.Int32> uId)
+        /// <param name="userName">No Metadata Documentation available.</param>
+        /// <param name="password">No Metadata Documentation available.</param>
+        /// <param name="id">No Metadata Documentation available.</param>
+        public int usePassSp(global::System.String userName, global::System.String password, ObjectParameter id)
         {
-            ObjectParameter uIdParameter;
-            if (uId.HasValue)
+            ObjectParameter userNameParameter;
+            if (userName != null)
             {
-                uIdParameter = new ObjectParameter("uId", uId);
+                userNameParameter = new ObjectParameter("userName", userName);
             }
             else
             {
-                uIdParameter = new ObjectParameter("uId", typeof(global::System.Int32));
+                userNameParameter = new ObjectParameter("userName", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction("verIns", uIdParameter);
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="uId">No Metadata Documentation available.</param>
-        public int regSel(Nullable<global::System.Int32> uId)
-        {
-            ObjectParameter uIdParameter;
-            if (uId.HasValue)
+            ObjectParameter passwordParameter;
+            if (password != null)
             {
-                uIdParameter = new ObjectParameter("uId", uId);
+                passwordParameter = new ObjectParameter("password", password);
             }
             else
             {
-                uIdParameter = new ObjectParameter("uId", typeof(global::System.Int32));
+                passwordParameter = new ObjectParameter("password", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction("regSel", uIdParameter);
+            return base.ExecuteFunction("usePassSp", userNameParameter, passwordParameter, id);
         }
     
         /// <summary>
@@ -406,6 +399,25 @@ namespace shutterEyeModel1
     
             return base.ExecuteFunction("regIns", firstNameParameter, lastNameParameter, userNameParameter, passwordParameter, emailIdParameter, mobileNoParameter, accountTypeParameter, countryParameter, stateParameter, cityParameter, profilePhotoParameter, genderParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="uId">No Metadata Documentation available.</param>
+        public int verIns(Nullable<global::System.Int32> uId)
+        {
+            ObjectParameter uIdParameter;
+            if (uId.HasValue)
+            {
+                uIdParameter = new ObjectParameter("uId", uId);
+            }
+            else
+            {
+                uIdParameter = new ObjectParameter("uId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("verIns", uIdParameter);
+        }
 
         #endregion
 
@@ -418,7 +430,7 @@ namespace shutterEyeModel1
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel1", Name="accType")]
+    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel", Name="accType")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class accType : EntityObject
@@ -504,18 +516,18 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_registration_accType", "registration")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_registration_accType", "registration")]
         public EntityCollection<registration> registrations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<registration>("shutterEyeModel1.FK_registration_accType", "registration");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<registration>("shutterEyeModel.FK_registration_accType", "registration");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<registration>("shutterEyeModel1.FK_registration_accType", "registration", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<registration>("shutterEyeModel.FK_registration_accType", "registration", value);
                 }
             }
         }
@@ -527,7 +539,7 @@ namespace shutterEyeModel1
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel1", Name="comment")]
+    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel", Name="comment")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class comment : EntityObject
@@ -689,16 +701,16 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_comment_photoUpload", "photoUpload")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_comment_photoUpload", "photoUpload")]
         public photoUpload photoUpload
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel1.FK_comment_photoUpload", "photoUpload").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel.FK_comment_photoUpload", "photoUpload").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel1.FK_comment_photoUpload", "photoUpload").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel.FK_comment_photoUpload", "photoUpload").Value = value;
             }
         }
         /// <summary>
@@ -710,13 +722,13 @@ namespace shutterEyeModel1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel1.FK_comment_photoUpload", "photoUpload");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel.FK_comment_photoUpload", "photoUpload");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<photoUpload>("shutterEyeModel1.FK_comment_photoUpload", "photoUpload", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<photoUpload>("shutterEyeModel.FK_comment_photoUpload", "photoUpload", value);
                 }
             }
         }
@@ -727,16 +739,16 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_comment_registration", "registration")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_comment_registration", "registration")]
         public registration registration
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_comment_registration", "registration").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_comment_registration", "registration").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_comment_registration", "registration").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_comment_registration", "registration").Value = value;
             }
         }
         /// <summary>
@@ -748,13 +760,13 @@ namespace shutterEyeModel1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_comment_registration", "registration");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_comment_registration", "registration");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<registration>("shutterEyeModel1.FK_comment_registration", "registration", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<registration>("shutterEyeModel.FK_comment_registration", "registration", value);
                 }
             }
         }
@@ -766,7 +778,7 @@ namespace shutterEyeModel1
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel1", Name="like")]
+    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel", Name="like")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class like : EntityObject
@@ -904,16 +916,16 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_like_photoUpload", "photoUpload")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_like_photoUpload", "photoUpload")]
         public photoUpload photoUpload
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel1.FK_like_photoUpload", "photoUpload").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel.FK_like_photoUpload", "photoUpload").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel1.FK_like_photoUpload", "photoUpload").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel.FK_like_photoUpload", "photoUpload").Value = value;
             }
         }
         /// <summary>
@@ -925,13 +937,13 @@ namespace shutterEyeModel1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel1.FK_like_photoUpload", "photoUpload");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<photoUpload>("shutterEyeModel.FK_like_photoUpload", "photoUpload");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<photoUpload>("shutterEyeModel1.FK_like_photoUpload", "photoUpload", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<photoUpload>("shutterEyeModel.FK_like_photoUpload", "photoUpload", value);
                 }
             }
         }
@@ -942,16 +954,16 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_like_registration", "registration")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_like_registration", "registration")]
         public registration registration
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_like_registration", "registration").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_like_registration", "registration").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_like_registration", "registration").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_like_registration", "registration").Value = value;
             }
         }
         /// <summary>
@@ -963,13 +975,13 @@ namespace shutterEyeModel1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_like_registration", "registration");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_like_registration", "registration");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<registration>("shutterEyeModel1.FK_like_registration", "registration", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<registration>("shutterEyeModel.FK_like_registration", "registration", value);
                 }
             }
         }
@@ -981,7 +993,7 @@ namespace shutterEyeModel1
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel1", Name="photoUpload")]
+    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel", Name="photoUpload")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class photoUpload : EntityObject
@@ -1241,18 +1253,18 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_comment_photoUpload", "comment")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_comment_photoUpload", "comment")]
         public EntityCollection<comment> comments
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<comment>("shutterEyeModel1.FK_comment_photoUpload", "comment");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<comment>("shutterEyeModel.FK_comment_photoUpload", "comment");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<comment>("shutterEyeModel1.FK_comment_photoUpload", "comment", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<comment>("shutterEyeModel.FK_comment_photoUpload", "comment", value);
                 }
             }
         }
@@ -1263,18 +1275,18 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_like_photoUpload", "like")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_like_photoUpload", "like")]
         public EntityCollection<like> likes
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<like>("shutterEyeModel1.FK_like_photoUpload", "like");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<like>("shutterEyeModel.FK_like_photoUpload", "like");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<like>("shutterEyeModel1.FK_like_photoUpload", "like", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<like>("shutterEyeModel.FK_like_photoUpload", "like", value);
                 }
             }
         }
@@ -1285,16 +1297,16 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_photoUpload_registration1", "registration")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_photoUpload_registration1", "registration")]
         public registration registration
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_photoUpload_registration1", "registration").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_photoUpload_registration1", "registration").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_photoUpload_registration1", "registration").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_photoUpload_registration1", "registration").Value = value;
             }
         }
         /// <summary>
@@ -1306,13 +1318,13 @@ namespace shutterEyeModel1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_photoUpload_registration1", "registration");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_photoUpload_registration1", "registration");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<registration>("shutterEyeModel1.FK_photoUpload_registration1", "registration", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<registration>("shutterEyeModel.FK_photoUpload_registration1", "registration", value);
                 }
             }
         }
@@ -1324,7 +1336,7 @@ namespace shutterEyeModel1
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel1", Name="registration")]
+    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel", Name="registration")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class registration : EntityObject
@@ -1339,9 +1351,10 @@ namespace shutterEyeModel1
         /// <param name="userName">Initial value of the userName property.</param>
         /// <param name="password">Initial value of the password property.</param>
         /// <param name="emailId">Initial value of the emailId property.</param>
+        /// <param name="country">Initial value of the country property.</param>
         /// <param name="gender">Initial value of the gender property.</param>
         /// <param name="accType">Initial value of the accType property.</param>
-        public static registration Createregistration(global::System.Int32 uId, global::System.String firstName, global::System.String userName, global::System.String password, global::System.String emailId, global::System.String gender, global::System.Int32 accType)
+        public static registration Createregistration(global::System.Int32 uId, global::System.String firstName, global::System.String userName, global::System.String password, global::System.String emailId, global::System.String country, global::System.String gender, global::System.Int32 accType)
         {
             registration registration = new registration();
             registration.uId = uId;
@@ -1349,6 +1362,7 @@ namespace shutterEyeModel1
             registration.userName = userName;
             registration.password = password;
             registration.emailId = emailId;
+            registration.country = country;
             registration.gender = gender;
             registration.accType = accType;
             return registration;
@@ -1532,7 +1546,7 @@ namespace shutterEyeModel1
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String country
         {
@@ -1544,7 +1558,7 @@ namespace shutterEyeModel1
             {
                 OncountryChanging(value);
                 ReportPropertyChanging("country");
-                _country = StructuralObject.SetValidValue(value, true);
+                _country = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("country");
                 OncountryChanged();
             }
@@ -1684,16 +1698,82 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_registration_accType", "accType")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_comment_registration", "comment")]
+        public EntityCollection<comment> comments
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<comment>("shutterEyeModel.FK_comment_registration", "comment");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<comment>("shutterEyeModel.FK_comment_registration", "comment", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_like_registration", "like")]
+        public EntityCollection<like> likes
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<like>("shutterEyeModel.FK_like_registration", "like");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<like>("shutterEyeModel.FK_like_registration", "like", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_photoUpload_registration1", "photoUpload")]
+        public EntityCollection<photoUpload> photoUploads
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<photoUpload>("shutterEyeModel.FK_photoUpload_registration1", "photoUpload");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<photoUpload>("shutterEyeModel.FK_photoUpload_registration1", "photoUpload", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_registration_accType", "accType")]
         public accType accType1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<accType>("shutterEyeModel1.FK_registration_accType", "accType").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<accType>("shutterEyeModel.FK_registration_accType", "accType").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<accType>("shutterEyeModel1.FK_registration_accType", "accType").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<accType>("shutterEyeModel.FK_registration_accType", "accType").Value = value;
             }
         }
         /// <summary>
@@ -1705,13 +1785,13 @@ namespace shutterEyeModel1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<accType>("shutterEyeModel1.FK_registration_accType", "accType");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<accType>("shutterEyeModel.FK_registration_accType", "accType");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<accType>("shutterEyeModel1.FK_registration_accType", "accType", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<accType>("shutterEyeModel.FK_registration_accType", "accType", value);
                 }
             }
         }
@@ -1722,84 +1802,18 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_comment_registration", "comment")]
-        public EntityCollection<comment> comments
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<comment>("shutterEyeModel1.FK_comment_registration", "comment");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<comment>("shutterEyeModel1.FK_comment_registration", "comment", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_like_registration", "like")]
-        public EntityCollection<like> likes
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<like>("shutterEyeModel1.FK_like_registration", "like");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<like>("shutterEyeModel1.FK_like_registration", "like", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_photoUpload_registration1", "photoUpload")]
-        public EntityCollection<photoUpload> photoUploads
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<photoUpload>("shutterEyeModel1.FK_photoUpload_registration1", "photoUpload");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<photoUpload>("shutterEyeModel1.FK_photoUpload_registration1", "photoUpload", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_verifyUser_registration", "verifyUser")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_verifyUser_registration", "verifyUser")]
         public EntityCollection<verifyUser> verifyUsers
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<verifyUser>("shutterEyeModel1.FK_verifyUser_registration", "verifyUser");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<verifyUser>("shutterEyeModel.FK_verifyUser_registration", "verifyUser");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<verifyUser>("shutterEyeModel1.FK_verifyUser_registration", "verifyUser", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<verifyUser>("shutterEyeModel.FK_verifyUser_registration", "verifyUser", value);
                 }
             }
         }
@@ -1811,7 +1825,7 @@ namespace shutterEyeModel1
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel1", Name="verifyUser")]
+    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel", Name="verifyUser")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class verifyUser : EntityObject
@@ -1897,16 +1911,16 @@ namespace shutterEyeModel1
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel1", "FK_verifyUser_registration", "registration")]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_verifyUser_registration", "registration")]
         public registration registration
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_verifyUser_registration", "registration").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_verifyUser_registration", "registration").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_verifyUser_registration", "registration").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_verifyUser_registration", "registration").Value = value;
             }
         }
         /// <summary>
@@ -1918,13 +1932,13 @@ namespace shutterEyeModel1
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel1.FK_verifyUser_registration", "registration");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_verifyUser_registration", "registration");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<registration>("shutterEyeModel1.FK_verifyUser_registration", "registration", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<registration>("shutterEyeModel.FK_verifyUser_registration", "registration", value);
                 }
             }
         }

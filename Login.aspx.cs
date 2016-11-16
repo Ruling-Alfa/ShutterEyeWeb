@@ -63,6 +63,6 @@ public partial class Login : System.Web.UI.Page
     }
     protected void btnRegister_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("Registration.aspx");
     }
 }

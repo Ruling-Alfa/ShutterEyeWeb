@@ -24,6 +24,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_like_photoUpload", "photoUpload", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.photoUpload), "like", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.like), true)]
 [assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_like_registration", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.registration), "like", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.like), true)]
 [assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_photoUpload_registration1", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.registration), "photoUpload", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.photoUpload), true)]
+[assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_registration_accType", "accType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.accType), "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.registration), true)]
+[assembly: EdmRelationshipAttribute("shutterEyeModel", "FK_verifyUser_registration", "registration", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(shutterEyeModel.registration), "verifyUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(shutterEyeModel.verifyUser), true)]
 
 #endregion
 
@@ -138,6 +140,38 @@ namespace shutterEyeModel
             }
         }
         private ObjectSet<registration> _registrations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<accType> accTypes
+        {
+            get
+            {
+                if ((_accTypes == null))
+                {
+                    _accTypes = base.CreateObjectSet<accType>("accTypes");
+                }
+                return _accTypes;
+            }
+        }
+        private ObjectSet<accType> _accTypes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<verifyUser> verifyUsers
+        {
+            get
+            {
+                if ((_verifyUsers == null))
+                {
+                    _verifyUsers = base.CreateObjectSet<verifyUser>("verifyUsers");
+                }
+                return _verifyUsers;
+            }
+        }
+        private ObjectSet<verifyUser> _verifyUsers;
 
         #endregion
 
@@ -173,6 +207,22 @@ namespace shutterEyeModel
         public void AddToregistrations(registration registration)
         {
             base.AddObject("registrations", registration);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the accTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaccTypes(accType accType)
+        {
+            base.AddObject("accTypes", accType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the verifyUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToverifyUsers(verifyUser verifyUser)
+        {
+            base.AddObject("verifyUsers", verifyUser);
         }
 
         #endregion
@@ -217,6 +267,115 @@ namespace shutterEyeModel
     #endregion
 
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel", Name="accType")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class accType : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new accType object.
+        /// </summary>
+        /// <param name="acId">Initial value of the acId property.</param>
+        /// <param name="acType">Initial value of the acType property.</param>
+        public static accType CreateaccType(global::System.Int32 acId, global::System.String acType)
+        {
+            accType accType = new accType();
+            accType.acId = acId;
+            accType.acType = acType;
+            return accType;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 acId
+        {
+            get
+            {
+                return _acId;
+            }
+            set
+            {
+                if (_acId != value)
+                {
+                    OnacIdChanging(value);
+                    ReportPropertyChanging("acId");
+                    _acId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("acId");
+                    OnacIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _acId;
+        partial void OnacIdChanging(global::System.Int32 value);
+        partial void OnacIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String acType
+        {
+            get
+            {
+                return _acType;
+            }
+            set
+            {
+                OnacTypeChanging(value);
+                ReportPropertyChanging("acType");
+                _acType = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("acType");
+                OnacTypeChanged();
+            }
+        }
+        private global::System.String _acType;
+        partial void OnacTypeChanging(global::System.String value);
+        partial void OnacTypeChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_registration_accType", "registration")]
+        public EntityCollection<registration> registrations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<registration>("shutterEyeModel.FK_registration_accType", "registration");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<registration>("shutterEyeModel.FK_registration_accType", "registration", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -1033,12 +1192,10 @@ namespace shutterEyeModel
         /// <param name="userName">Initial value of the userName property.</param>
         /// <param name="password">Initial value of the password property.</param>
         /// <param name="emailId">Initial value of the emailId property.</param>
-        /// <param name="mobileNo">Initial value of the mobileNo property.</param>
-        /// <param name="accountType">Initial value of the accountType property.</param>
         /// <param name="country">Initial value of the country property.</param>
-        /// <param name="profilePhoto">Initial value of the profilePhoto property.</param>
         /// <param name="gender">Initial value of the gender property.</param>
-        public static registration Createregistration(global::System.Int32 uId, global::System.String firstName, global::System.String userName, global::System.String password, global::System.String emailId, global::System.Int32 mobileNo, global::System.String accountType, global::System.String country, global::System.String profilePhoto, global::System.String gender)
+        /// <param name="accType">Initial value of the accType property.</param>
+        public static registration Createregistration(global::System.Int32 uId, global::System.String firstName, global::System.String userName, global::System.String password, global::System.String emailId, global::System.String country, global::System.String gender, global::System.Int32 accType)
         {
             registration registration = new registration();
             registration.uId = uId;
@@ -1046,11 +1203,9 @@ namespace shutterEyeModel
             registration.userName = userName;
             registration.password = password;
             registration.emailId = emailId;
-            registration.mobileNo = mobileNo;
-            registration.accountType = accountType;
             registration.country = country;
-            registration.profilePhoto = profilePhoto;
             registration.gender = gender;
+            registration.accType = accType;
             return registration;
         }
 
@@ -1208,9 +1363,9 @@ namespace shutterEyeModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 mobileNo
+        public Nullable<global::System.Int32> mobileNo
         {
             get
             {
@@ -1225,33 +1380,9 @@ namespace shutterEyeModel
                 OnmobileNoChanged();
             }
         }
-        private global::System.Int32 _mobileNo;
-        partial void OnmobileNoChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _mobileNo;
+        partial void OnmobileNoChanging(Nullable<global::System.Int32> value);
         partial void OnmobileNoChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String accountType
-        {
-            get
-            {
-                return _accountType;
-            }
-            set
-            {
-                OnaccountTypeChanging(value);
-                ReportPropertyChanging("accountType");
-                _accountType = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("accountType");
-                OnaccountTypeChanged();
-            }
-        }
-        private global::System.String _accountType;
-        partial void OnaccountTypeChanging(global::System.String value);
-        partial void OnaccountTypeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1328,7 +1459,7 @@ namespace shutterEyeModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String profilePhoto
         {
@@ -1340,7 +1471,7 @@ namespace shutterEyeModel
             {
                 OnprofilePhotoChanging(value);
                 ReportPropertyChanging("profilePhoto");
-                _profilePhoto = StructuralObject.SetValidValue(value, false);
+                _profilePhoto = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("profilePhoto");
                 OnprofilePhotoChanged();
             }
@@ -1372,6 +1503,30 @@ namespace shutterEyeModel
         private global::System.String _gender;
         partial void OngenderChanging(global::System.String value);
         partial void OngenderChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 accType
+        {
+            get
+            {
+                return _accType;
+            }
+            set
+            {
+                OnaccTypeChanging(value);
+                ReportPropertyChanging("accType");
+                _accType = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("accType");
+                OnaccTypeChanged();
+            }
+        }
+        private global::System.Int32 _accType;
+        partial void OnaccTypeChanging(global::System.Int32 value);
+        partial void OnaccTypeChanged();
 
         #endregion
 
@@ -1440,6 +1595,191 @@ namespace shutterEyeModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<photoUpload>("shutterEyeModel.FK_photoUpload_registration1", "photoUpload", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_registration_accType", "accType")]
+        public accType accType1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<accType>("shutterEyeModel.FK_registration_accType", "accType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<accType>("shutterEyeModel.FK_registration_accType", "accType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<accType> accType1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<accType>("shutterEyeModel.FK_registration_accType", "accType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<accType>("shutterEyeModel.FK_registration_accType", "accType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_verifyUser_registration", "verifyUser")]
+        public EntityCollection<verifyUser> verifyUsers
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<verifyUser>("shutterEyeModel.FK_verifyUser_registration", "verifyUser");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<verifyUser>("shutterEyeModel.FK_verifyUser_registration", "verifyUser", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel", Name="verifyUser")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class verifyUser : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new verifyUser object.
+        /// </summary>
+        /// <param name="vId">Initial value of the vId property.</param>
+        /// <param name="uId">Initial value of the uId property.</param>
+        public static verifyUser CreateverifyUser(global::System.Int32 vId, global::System.Int32 uId)
+        {
+            verifyUser verifyUser = new verifyUser();
+            verifyUser.vId = vId;
+            verifyUser.uId = uId;
+            return verifyUser;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 vId
+        {
+            get
+            {
+                return _vId;
+            }
+            set
+            {
+                if (_vId != value)
+                {
+                    OnvIdChanging(value);
+                    ReportPropertyChanging("vId");
+                    _vId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("vId");
+                    OnvIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _vId;
+        partial void OnvIdChanging(global::System.Int32 value);
+        partial void OnvIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 uId
+        {
+            get
+            {
+                return _uId;
+            }
+            set
+            {
+                OnuIdChanging(value);
+                ReportPropertyChanging("uId");
+                _uId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("uId");
+                OnuIdChanged();
+            }
+        }
+        private global::System.Int32 _uId;
+        partial void OnuIdChanging(global::System.Int32 value);
+        partial void OnuIdChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("shutterEyeModel", "FK_verifyUser_registration", "registration")]
+        public registration registration
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_verifyUser_registration", "registration").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_verifyUser_registration", "registration").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<registration> registrationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<registration>("shutterEyeModel.FK_verifyUser_registration", "registration");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<registration>("shutterEyeModel.FK_verifyUser_registration", "registration", value);
                 }
             }
         }

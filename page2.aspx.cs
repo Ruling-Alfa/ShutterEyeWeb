@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Net;
 
 public partial class page2 : System.Web.UI.Page
 {
@@ -20,6 +21,7 @@ public partial class page2 : System.Web.UI.Page
                 throw new Exception("File Does Not Exists!!!!");
             }
         }
+        Response.Write(filePath);
     }
 
     private void drawOnScreen(Bitmap bmp)
@@ -29,8 +31,10 @@ public partial class page2 : System.Web.UI.Page
         g.Flush();
         Response.ContentType = "image/jpeg";
         bmp.Save(Response.OutputStream, ImageFormat.Jpeg);
+
         g.Dispose();
         bmp.Dispose();
+
     }
 
     protected void applyRustyFilter(object sender, EventArgs e)
@@ -89,4 +93,5 @@ public partial class page2 : System.Web.UI.Page
     {
         applyMarbleFilter(sender, e);
     }
+    
 }

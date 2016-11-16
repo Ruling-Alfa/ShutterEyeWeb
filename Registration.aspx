@@ -118,7 +118,7 @@
                        
                         <div class="col-lg-10">
                              <asp:TextBox ID="txtBoxPhone" class="form-control"  runat="server" placeholder="Phone"></asp:TextBox>
-                            <asp:RegularExpressionValidator ID="regExPhone" runat="server" ErrorMessage="Invalid Phone Number" ControlToValidate="txtBoxPhone" ValidationExpression="^(?:(?:\+?1*)(?:\(*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))(?:)?)([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})([0-9]{4})(?:(?:#|x\.?|ext\.?|extension)(\d+))?$"></asp:RegularExpressionValidator>
+                             <asp:RegularExpressionValidator ID="regExPhone" runat="server" ErrorMessage="Invalid Phone Number" ControlToValidate="txtBoxPhone" ValidationExpression="^(?:(?:\+?1*)(?:\(*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))(?:)?)([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})([0-9]{4})(?:(?:#|x\.?|ext\.?|extension)(\d+))?$"></asp:RegularExpressionValidator>
                     </div>
                     </div>
 

@@ -67,11 +67,13 @@
                     <div class="form-group">
                         <div class="col-lg-10">
                             <asp:TextBox ID="txtBoxUserName" class="form-control"  runat="server" placeholder="Username"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="requiredUserName" runat="server" ControlToValidate="txtBoxUserName" ErrorMessage="Please Enter your User Name"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10">
                             <asp:TextBox ID="txtBoxPassword" TextMode="Password" class="form-control"  runat="server" placeholder="Password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="requiredPassword" runat="server" ControlToValidate="txtBoxPassword" ErrorMessage="Please Enter your Password"></asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">

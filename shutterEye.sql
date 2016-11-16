@@ -135,6 +135,19 @@ GO
 
 
 
+USE [shutterEye]
+GO
+
+/****** Object:  Table [dbo].[registration]    Script Date: 11/16/2016 18:28:43 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
 CREATE TABLE [dbo].[registration](
 	[uId] [int] IDENTITY(1,1) NOT NULL,
 	[firstName] [varchar](150) NOT NULL,
@@ -142,8 +155,8 @@ CREATE TABLE [dbo].[registration](
 	[userName] [varchar](150) NOT NULL,
 	[password] [varchar](50) NOT NULL,
 	[emailId] [varchar](80) NOT NULL,
-	[mobileNo] [int] NULL,
-	[country] [varchar](50) NOT NULL,
+	[mobileNo] [numeric](12, 0) NULL,
+	[country] [varchar](50) NULL,
 	[state] [varchar](50) NULL,
 	[city] [varchar](50) NULL,
 	[profilePhoto] [varchar](50) NULL,
@@ -152,6 +165,10 @@ CREATE TABLE [dbo].[registration](
  CONSTRAINT [PK_registration] PRIMARY KEY CLUSTERED 
 (
 	[uId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [IX_registration] UNIQUE NONCLUSTERED 
+(
+	[emailId] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
@@ -166,6 +183,9 @@ GO
 
 ALTER TABLE [dbo].[registration] CHECK CONSTRAINT [FK_registration_accType]
 GO
+
+
+
 
 
 

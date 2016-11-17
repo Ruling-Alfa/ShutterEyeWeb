@@ -172,6 +172,22 @@ namespace shutterEyeModel1
             }
         }
         private ObjectSet<verifyUser> _verifyUsers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<sysdiagram> sysdiagrams
+        {
+            get
+            {
+                if ((_sysdiagrams == null))
+                {
+                    _sysdiagrams = base.CreateObjectSet<sysdiagram>("sysdiagrams");
+                }
+                return _sysdiagrams;
+            }
+        }
+        private ObjectSet<sysdiagram> _sysdiagrams;
 
         #endregion
 
@@ -223,6 +239,14 @@ namespace shutterEyeModel1
         public void AddToverifyUsers(verifyUser verifyUser)
         {
             base.AddObject("verifyUsers", verifyUser);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTosysdiagrams(sysdiagram sysdiagram)
+        {
+            base.AddObject("sysdiagrams", sysdiagram);
         }
 
         #endregion
@@ -282,7 +306,7 @@ namespace shutterEyeModel1
         /// <param name="city">No Metadata Documentation available.</param>
         /// <param name="profilePhoto">No Metadata Documentation available.</param>
         /// <param name="gender">No Metadata Documentation available.</param>
-        public int regIns(global::System.String firstName, global::System.String lastName, global::System.String userName, global::System.String password, global::System.String emailId, Nullable<global::System.Int32> mobileNo, Nullable<global::System.Int32> accountType, global::System.String country, global::System.String state, global::System.String city, global::System.String profilePhoto, global::System.String gender)
+        public int regIns(global::System.String firstName, global::System.String lastName, global::System.String userName, global::System.String password, global::System.String emailId, Nullable<global::System.Decimal> mobileNo, Nullable<global::System.Int32> accountType, global::System.String country, global::System.String state, global::System.String city, global::System.String profilePhoto, global::System.String gender)
         {
             ObjectParameter firstNameParameter;
             if (firstName != null)
@@ -341,7 +365,7 @@ namespace shutterEyeModel1
             }
             else
             {
-                mobileNoParameter = new ObjectParameter("mobileNo", typeof(global::System.Int32));
+                mobileNoParameter = new ObjectParameter("mobileNo", typeof(global::System.Decimal));
             }
     
             ObjectParameter accountTypeParameter;
@@ -405,6 +429,77 @@ namespace shutterEyeModel1
             }
     
             return base.ExecuteFunction("regIns", firstNameParameter, lastNameParameter, userNameParameter, passwordParameter, emailIdParameter, mobileNoParameter, accountTypeParameter, countryParameter, stateParameter, cityParameter, profilePhotoParameter, genderParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="emailId">No Metadata Documentation available.</param>
+        /// <param name="outEmail">No Metadata Documentation available.</param>
+        public int getEmail(global::System.String emailId, ObjectParameter outEmail)
+        {
+            ObjectParameter emailIdParameter;
+            if (emailId != null)
+            {
+                emailIdParameter = new ObjectParameter("emailId", emailId);
+            }
+            else
+            {
+                emailIdParameter = new ObjectParameter("emailId", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("getEmail", emailIdParameter, outEmail);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="userName">No Metadata Documentation available.</param>
+        /// <param name="outUserName">No Metadata Documentation available.</param>
+        public int getUserName(global::System.String userName, ObjectParameter outUserName)
+        {
+            ObjectParameter userNameParameter;
+            if (userName != null)
+            {
+                userNameParameter = new ObjectParameter("userName", userName);
+            }
+            else
+            {
+                userNameParameter = new ObjectParameter("userName", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("getUserName", userNameParameter, outUserName);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="userName">No Metadata Documentation available.</param>
+        /// <param name="password">No Metadata Documentation available.</param>
+        /// <param name="id">No Metadata Documentation available.</param>
+        public int usePass(global::System.String userName, global::System.String password, ObjectParameter id)
+        {
+            ObjectParameter userNameParameter;
+            if (userName != null)
+            {
+                userNameParameter = new ObjectParameter("userName", userName);
+            }
+            else
+            {
+                userNameParameter = new ObjectParameter("userName", typeof(global::System.String));
+            }
+    
+            ObjectParameter passwordParameter;
+            if (password != null)
+            {
+                passwordParameter = new ObjectParameter("password", password);
+            }
+            else
+            {
+                passwordParameter = new ObjectParameter("password", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("usePass", userNameParameter, passwordParameter, id);
         }
 
         #endregion
@@ -1806,6 +1901,163 @@ namespace shutterEyeModel1
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="shutterEyeModel1", Name="sysdiagram")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class sysdiagram : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new sysdiagram object.
+        /// </summary>
+        /// <param name="name">Initial value of the name property.</param>
+        /// <param name="principal_id">Initial value of the principal_id property.</param>
+        /// <param name="diagram_id">Initial value of the diagram_id property.</param>
+        public static sysdiagram Createsysdiagram(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
+        {
+            sysdiagram sysdiagram = new sysdiagram();
+            sysdiagram.name = name;
+            sysdiagram.principal_id = principal_id;
+            sysdiagram.diagram_id = diagram_id;
+            return sysdiagram;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 principal_id
+        {
+            get
+            {
+                return _principal_id;
+            }
+            set
+            {
+                Onprincipal_idChanging(value);
+                ReportPropertyChanging("principal_id");
+                _principal_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("principal_id");
+                Onprincipal_idChanged();
+            }
+        }
+        private global::System.Int32 _principal_id;
+        partial void Onprincipal_idChanging(global::System.Int32 value);
+        partial void Onprincipal_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 diagram_id
+        {
+            get
+            {
+                return _diagram_id;
+            }
+            set
+            {
+                if (_diagram_id != value)
+                {
+                    Ondiagram_idChanging(value);
+                    ReportPropertyChanging("diagram_id");
+                    _diagram_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("diagram_id");
+                    Ondiagram_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _diagram_id;
+        partial void Ondiagram_idChanging(global::System.Int32 value);
+        partial void Ondiagram_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                OnversionChanging(value);
+                ReportPropertyChanging("version");
+                _version = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("version");
+                OnversionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _version;
+        partial void OnversionChanging(Nullable<global::System.Int32> value);
+        partial void OnversionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] definition
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_definition);
+            }
+            set
+            {
+                OndefinitionChanging(value);
+                ReportPropertyChanging("definition");
+                _definition = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("definition");
+                OndefinitionChanged();
+            }
+        }
+        private global::System.Byte[] _definition;
+        partial void OndefinitionChanging(global::System.Byte[] value);
+        partial void OndefinitionChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

@@ -6,13 +6,14 @@ using AForge.Imaging.Filters;
 using System.Drawing;
 using AForge.Imaging.Textures;
 using System.Drawing.Imaging;
+using System.IO;
 
 /// <summary>
 /// Summary description for ASF
 /// </summary>
 public class ASF
 {
-    public static Bitmap MarbleFilter(String filePath)
+    public static string MarbleFilter(String filePath)
     {
         // load an image
         System.Drawing.Bitmap image = (Bitmap)Bitmap.FromFile(filePath);
@@ -26,12 +27,15 @@ public class ASF
         IFilter filter1 = new Texturer(texture);
         // apply filter
         Bitmap newImage1 = filter1.Apply(image);
-       
 
-        return newImage1;
+
+        string storeFilePath = getFilteredImagePath(filePath);
+        newImage1.Save(storeFilePath);
+
+        return storeFilePath;
     }
 
-    public static Bitmap WoodFilter(String filePath)
+    public static string WoodFilter(String filePath)
     {
         // load an image
         System.Drawing.Bitmap image = (Bitmap)Bitmap.FromFile(filePath);
@@ -44,10 +48,13 @@ public class ASF
         Bitmap newImage2 = filter2.Apply(image);
 
 
-        return newImage2;
+        string storeFilePath = getFilteredImagePath(filePath);
+        newImage2.Save(storeFilePath);
+
+        return storeFilePath;
     }
     
-    public static Bitmap TextileFilter(String filePath)
+    public static string TextileFilter(String filePath)
     {
         // load an image
         System.Drawing.Bitmap image = (Bitmap)Bitmap.FromFile(filePath);
@@ -59,10 +66,28 @@ public class ASF
         // apply filter
         Bitmap newImage3 = filter3.Apply(image);
 
-        return newImage3;
+        string storeFilePath = getFilteredImagePath(filePath);
+        newImage3.Save(storeFilePath);
+        
+        return storeFilePath;
     }
 
-    public static Bitmap RustyFilter(String filePath)
+    private static string getFilteredImagePath(String filePath)
+    {
+        string parentPath = Directory.GetParent(filePath).FullName;
+        string fileNameWithoutExt = Path.GetFileNameWithoutExtension(filePath);
+        string ext = Path.GetExtension(filePath);
+        string storeFilePath = parentPath + "\\" + fileNameWithoutExt + "_filter" + ext;
+        int count = 0;
+        while (File.Exists(storeFilePath))
+        {
+            storeFilePath = parentPath + "\\" + fileNameWithoutExt + "_filter(" + count + ")" + ext;
+            count++;
+        }
+        return storeFilePath;
+    }
+
+    public static string RustyFilter(String filePath)
     {
         // load an image
         System.Drawing.Bitmap image = (Bitmap)Bitmap.FromFile(filePath);
@@ -74,6 +99,9 @@ public class ASF
         // apply filter
         Bitmap newImage4 = filter4.Apply(image);
 
-        return newImage4;
+        string storeFilePath = getFilteredImagePath(filePath);
+        newImage4.Save(storeFilePath);
+
+        return storeFilePath;
     }
 }

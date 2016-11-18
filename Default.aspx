@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server" method="post">    
         <asp:FileUpload ID="FileUploadControl" runat="server" />
-        <asp:Button runat="server" id="UploadButton" text="Upload" onclick="UploadButton_Click" />
+        <asp:Button runat="server" id="UploadButton" text="Upload" onclick="UploadButton_Click" accept="image/png, image/jpeg"  />
         <br /><br />
         <asp:Label runat="server" id="StatusLabel" text="Upload status: " />
     </form>

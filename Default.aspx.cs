@@ -28,6 +28,17 @@ public partial class _Default : System.Web.UI.Page
             {
                 string filename = Path.GetFileName(FileUploadControl.FileName);
                 string ext = Path.GetExtension(filename);
+                if (!(ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg"))
+                {
+                    Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('Please choose only .jpg, .png and .gif image types!')", true);
+                    return;
+                }
+                if (FileUploadControl.PostedFile.ContentLength > (10240*100))
+                {
+                    Page.ClientScript.RegisterClientScriptBlock(typeof(Page), "Alert", "alert('File is too big.')", true);
+                    return;
+                }
+                
                 Guid g = Guid.NewGuid();
                 FileName = Server.MapPath("~/")+"uploadImages\\" + g.ToString() + ext;
                 while (File.Exists(FileName)) {
@@ -38,8 +49,8 @@ public partial class _Default : System.Web.UI.Page
                 
                 StatusLabel.Text = "Upload status: File uploaded!\n"+FileName;
                          
-                Context.Items["path"] = FileName;
-                Server.Transfer("page2.aspx");
+                Session["path"] = FileName;
+                Response.Redirect("page2.aspx",true);
             }
             catch (Exception ex)
             {

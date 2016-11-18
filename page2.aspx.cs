@@ -7,15 +7,17 @@ using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Net;
+using System.IO;
 
 public partial class page2 : System.Web.UI.Page
 {
     static String filePath;
     protected void Page_Load(object sender, EventArgs e)
+    
     {
         if (!IsPostBack)
         {
-            filePath = Context.Items["path"].ToString();
+            filePath = Session["path"].ToString();
             if (filePath == null)
             {
                 throw new Exception("File Does Not Exists!!!!");
@@ -42,8 +44,13 @@ public partial class page2 : System.Web.UI.Page
         Button button = sender as Button;
         if (button != null && filePath!=null)
         {
-            Bitmap bmp = ASF.RustyFilter(filePath);
-            drawOnScreen(bmp);
+            String filteredImgPath = ASF.RustyFilter(filePath);
+            string parentPath = Directory.GetParent(filteredImgPath).FullName;
+            string fileNameWithoutExt = Path.GetFileNameWithoutExtension(filteredImgPath);
+            string ext = Path.GetExtension(filteredImgPath);
+            string storeFilePath = "uploadImages" + "\\" + fileNameWithoutExt + ext;
+
+            imageFilteredImg.ImageUrl = storeFilePath;
         }
 
     }
@@ -52,8 +59,14 @@ public partial class page2 : System.Web.UI.Page
         Button button = sender as Button;
         if (button != null && filePath != null)
         {
-            Bitmap bmp = ASF.TextileFilter(filePath);
-            drawOnScreen(bmp);
+            String filteredImgPath = ASF.TextileFilter(filePath);
+
+            string parentPath = Directory.GetParent(filteredImgPath).FullName;
+            string fileNameWithoutExt = Path.GetFileNameWithoutExtension(filteredImgPath);
+            string ext = Path.GetExtension(filteredImgPath);
+            string storeFilePath = "uploadImages" + "\\" + fileNameWithoutExt + ext;
+
+            imageFilteredImg.ImageUrl = storeFilePath;
         }
 
     }
@@ -62,8 +75,13 @@ public partial class page2 : System.Web.UI.Page
         Button button = sender as Button;
         if (button != null && filePath != null)
         {
-            Bitmap bmp = ASF.WoodFilter(filePath);
-            drawOnScreen(bmp);
+            String filteredImgPath = ASF.WoodFilter(filePath);
+            string parentPath = Directory.GetParent(filteredImgPath).FullName;
+            string fileNameWithoutExt = Path.GetFileNameWithoutExtension(filteredImgPath);
+            string ext = Path.GetExtension(filteredImgPath);
+            string storeFilePath = "uploadImages" + "\\" + fileNameWithoutExt + ext;
+
+            imageFilteredImg.ImageUrl = storeFilePath;
         }
 
     }
@@ -72,8 +90,13 @@ public partial class page2 : System.Web.UI.Page
         Button button = sender as Button;
         if (button != null && filePath!=null)
         {
-            Bitmap bmp = ASF.MarbleFilter(filePath);
-            drawOnScreen(bmp);
+            String filteredImgPath = ASF.MarbleFilter(filePath);
+            string parentPath = Directory.GetParent(filteredImgPath).FullName;
+            string fileNameWithoutExt = Path.GetFileNameWithoutExtension(filteredImgPath);
+            string ext = Path.GetExtension(filteredImgPath);
+            string storeFilePath = "uploadImages" + "\\" + fileNameWithoutExt + ext;
+
+            imageFilteredImg.ImageUrl = storeFilePath;
         }
 
     }
@@ -84,7 +107,7 @@ public partial class page2 : System.Web.UI.Page
     protected void applyTextileFilterBtn_Click(object sender, EventArgs e)
     {
         applyTextileFilter(sender, e);
-    }
+      }
     protected void applyWoodFilterBtn_Click(object sender, EventArgs e)
     {
         applyWoodFilter(sender, e);

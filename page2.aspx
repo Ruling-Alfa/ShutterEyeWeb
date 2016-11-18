@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" method="post">
     <div>
         <asp:Button ID="applyRustyFilterBtn" runat="server" Text="Apply Rusty Filter" 
             onclick="applyRustyFilterBtn_Click" />
@@ -18,6 +18,9 @@
         <asp:Button ID="applyMarbleFilterBtn" runat="server" Text="Apply Marble Filter" 
             onclick="applyMarbleFilterBtn_Click" />
             
+            <br />
+            <br />
+        <asp:Image ID="imageFilteredImg" runat="server" />
     </div>
     </form>
 </body>

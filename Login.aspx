@@ -23,30 +23,8 @@
 
 </head>
 <body>
-    
-<div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
-    <div class="container">
-         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-         <div class="navbar-header"><a class="navbar-brand" href="#">Shutter Eye</a>
-             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse navbar-menubuilder">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">Home</a>
-                    </li>
-                    <li><a href="/products">Products</a>
-                    </li>
-                    <li><a href="/about-us">About Us</a>
-                    </li>
-                    <li><a href="/contact">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 
+<br /><br /><br />
         <div class="container">
            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
            <div id="banner">
@@ -80,8 +58,9 @@
                         <div class="col-lg-10 col-lg-offset-2">
                         <asp:Button ID="btnLogin" runat="server" text="Login" Font-Bold="true" 
                                 BackColor="#009900" ForeColor="Black" Font-Size="Large" 
-                                onclick="btnLogin_Click"/>                          
-                        <asp:Button ID="btnRegister" runat="server" text="Register" Font-Bold="true" BackColor="#ff6600" ForeColor="Black" Font-Size="Large" OnClick="btnRegister_Click"/>                          
+                                onclick="btnLogin_Click" style="background:transparent;color:White;"/>                          
+                        &nbsp;&nbsp;&nbsp;                          
+                        <asp:Button ID="btnRegister" style="background:transparent;color:White;" runat="server" text="Register" CausesValidation="False" Font-Bold="true" BackColor="#ff6600" ForeColor="Black" Font-Size="Large" OnClick="btnRegister_Click"/>                          
                         </div>
                   
                     <div class="form-group">

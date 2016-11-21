@@ -23,30 +23,8 @@
 
 </head>
 <body>
-    
-<div id="custom-bootstrap-menu" class="navbar navbar-default " role="navigation">
-    <div class="container">
-         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-         <div class="navbar-header"><a class="navbar-brand" href="#">Shutter Eye</a>
-             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse navbar-menubuilder">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">Home</a>
-                    </li>
-                    <li><a href="/products">Products</a>
-                    </li>
-                    <li><a href="/about-us">About Us</a>
-                    </li>
-                    <li><a href="/contact">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
 
+<br /><br /><br />
         <div class="container">
            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
            <div id="banner">
@@ -174,7 +152,8 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
-                        <asp:Button ID="btnRegister" runat="server" text="Register"  Font-Bold="true" BackColor="#ff6600" ForeColor="Black" Font-Size="Large" onclick="btnRegister_Click"/>
+                            <br />
+                        <asp:Button ID="btnRegister" runat="server" text="Register"  Font-Bold="true" BackColor="#ff6600" ForeColor="Black" Font-Size="Large" style="background:transparent;color:White;" onclick="btnRegister_Click"/>
                         </div>
                     </div>
                 </fieldset>
@@ -206,6 +185,7 @@
         }
     );
         </script>
-                                  
+
+        <br /><br />
 </body>
 </html>

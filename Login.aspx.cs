@@ -31,7 +31,8 @@ public partial class Login : System.Web.UI.Page
                         Session["UserName"] = null;
                         Session["passowrd"] = null;
                         Response.Write("Illegal user");
-                        //throw new Exception("Illegal user");
+                        //throw new Exception("Illegal user"); 
+                       
                     }
                 }
                 else
@@ -39,7 +40,8 @@ public partial class Login : System.Web.UI.Page
                     Session["Id"] = null;
                     Session["UserName"] = null;
                     Session["passowrd"] = null;
-                    Response.Write("Illegal user");
+                   // Response.Write("Illegal user");
+                   
                 }
 
             }
@@ -60,6 +62,7 @@ public partial class Login : System.Web.UI.Page
             Response.Redirect("Home.aspx");
         }
         Response.Write("Error");
+        Response.Write("<script>alert('Illegal Login credentials')</script>");
     }
     protected void btnRegister_Click(object sender, EventArgs e)
     {
